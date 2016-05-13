@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Charcoal.html">\Charcoal</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">30</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1330618886"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1330618886" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1540369900"></a>
+                                <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
+            </div>
+            <div id="namespace-1540369900" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-591733437"></a>
+                                <a href="../namespaces/Charcoal.Email.html" style="margin-left: 30px; padding-left: 0">Email</a>
+            </div>
+            <div id="namespace-591733437" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-452509764"></a>
+                                <a href="../namespaces/Charcoal.Email.Queue.html" style="margin-left: 30px; padding-left: 0">Queue</a>
+            </div>
+            <div id="namespace-452509764" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Charcoal.Email.Queue.QueueableInterface.html">QueueableInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Charcoal.Email.Queue.QueueItemInterface.html">QueueItemInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Charcoal.Email.Queue.QueueManagerInterface.html">QueueManagerInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/Charcoal.Email.Queue.QueueableTrait.html">QueueableTrait</a></li>
+                                                    <li class="trait"><a href="../classes/Charcoal.Email.Queue.QueueItemTrait.html">QueueItemTrait</a></li>
+                                                                            <li class="class"><a href="../classes/Charcoal.Email.Queue.AbstractQueueManager.html">AbstractQueueManager</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-164309336"></a>
+                                <a href="../namespaces/Charcoal.Email.Script.html" style="margin-left: 30px; padding-left: 0">Script</a>
+            </div>
+            <div id="namespace-164309336" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Charcoal.Email.Script.ProcessQueueScript.html">ProcessQueueScript</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-429986769"></a>
+                                <a href="../namespaces/Charcoal.Email.ServiceProvider.html" style="margin-left: 30px; padding-left: 0">ServiceProvider</a>
+            </div>
+            <div id="namespace-429986769" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Charcoal.Email.ServiceProvider.EmailServiceProvider.html">EmailServiceProvider</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Charcoal.Email.EmailInterface.html">EmailInterface</a></li>
+                                                                            <li class="trait"><a href="../classes/Charcoal.Email.EmailAwareTrait.html">EmailAwareTrait</a></li>
+                                                                            <li class="class"><a href="../classes/Charcoal.Email.Email.html">Email</a></li>
+                                                    <li class="class"><a href="../classes/Charcoal.Email.EmailConfig.html">EmailConfig</a></li>
+                                                    <li class="class"><a href="../classes/Charcoal.Email.EmailLog.html">EmailLog</a></li>
+                                                    <li class="class"><a href="../classes/Charcoal.Email.EmailQueueItem.html">EmailQueueItem</a></li>
+                                                    <li class="class"><a href="../classes/Charcoal.Email.EmailQueueManager.html">EmailQueueManager</a></li>
+                                                    <li class="class"><a href="../classes/Charcoal.Email.GenericEmailTemplate.html">GenericEmailTemplate</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Charcoal.Email.html">\Charcoal\Email</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Charcoal\Email</small>EmailConfig</h1>
+                    <p><em>Email configuration.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_defaults" class="">defaults()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtp" class="">setSmtp()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtp" class="">smtp()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpHostname" class="">setSmtpHostname()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpHostname" class="">smtpHostname()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpPort" class="">setSmtpPort()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpPort" class="">smtpPort()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpAuth" class="">setSmtpAuth()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpAuth" class="">smtpAuth()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpUsername" class="">setSmtpUsername()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpUsername" class="">smtpUsername()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpPassword" class="">setSmtpPassword()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpPassword" class="">smtpPassword()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setSmtpSecurity" class="">setSmtpSecurity()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_smtpSecurity" class="">smtpSecurity()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setDefaultFrom" class="">setDefaultFrom()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_defaultFrom" class="">defaultFrom()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setDefaultReplyTo" class="">setDefaultReplyTo()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_defaultReplyTo" class="">defaultReplyTo()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setDefaultLog" class="">setDefaultLog()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_defaultLog" class="">defaultLog()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_setDefaultTrack" class="">setDefaultTrack()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#method_defaultTrack" class="">defaultTrack()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Charcoal.Email.EmailAwareTrait.html#method_emailToArray" class="">emailToArray()</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailAwareTrait.html#method_emailFromArray" class="">emailFromArray()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtp" class="">$smtp</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpHostname" class="">$smtpHostname</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpPort" class="">$smtpPort</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpSecurity" class="">$smtpSecurity</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpAuth" class="">$smtpAuth</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpUsername" class="">$smtpUsername</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_smtpPassword" class="">$smtpPassword</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_defaultFrom" class="">$defaultFrom</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_defaultReplyTo" class="">$defaultReplyTo</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_defaultTrack" class="">$defaultTrack</a><br />
+                                                                    <a href="../classes/Charcoal.Email.EmailConfig.html#property_defaultLog" class="">$defaultLog</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/EmailConfig.html"><div class="path-wrapper">EmailConfig.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper">\Charcoal\Config\AbstractConfig</div>
+                                                                                                    <div class="namespace-wrapper">\Charcoal\Email\EmailConfig</div>
+                            </dd>
+
+                        
+                                                                                    <dt>Uses traits</dt>
+                                                        <dd>
+                                <a href="../classes/Charcoal.Email.EmailAwareTrait.html">                                    <div class="namespace-wrapper">\Charcoal\Email\EmailAwareTrait</div>
+                                </a>                            </dd>
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtp" name="property_smtp" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtp</h3>
+                <pre class="signature">$smtp : boolean</pre>
+                <p><em>Whether SMTP should be used.</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpHostname" name="property_smtpHostname" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpHostname</h3>
+                <pre class="signature">$smtpHostname : string</pre>
+                <p><em>The SMTP hostname.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpPort" name="property_smtpPort" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpPort</h3>
+                <pre class="signature">$smtpPort : integer</pre>
+                <p><em>The SMTP port.</em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpSecurity" name="property_smtpSecurity" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpSecurity</h3>
+                <pre class="signature">$smtpSecurity : string</pre>
+                <p><em>The SMTP security type.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpAuth" name="property_smtpAuth" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpAuth</h3>
+                <pre class="signature">$smtpAuth : boolean</pre>
+                <p><em>Whether SMTP requires authentication.</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpUsername" name="property_smtpUsername" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpUsername</h3>
+                <pre class="signature">$smtpUsername : string</pre>
+                <p><em>The SMTP username.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_smtpPassword" name="property_smtpPassword" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$smtpPassword</h3>
+                <pre class="signature">$smtpPassword : string</pre>
+                <p><em>The SMTP password.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_defaultFrom" name="property_defaultFrom" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$defaultFrom</h3>
+                <pre class="signature">$defaultFrom : string</pre>
+                <p><em>The default sender&#039;s email address.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_defaultReplyTo" name="property_defaultReplyTo" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$defaultReplyTo</h3>
+                <pre class="signature">$defaultReplyTo : string</pre>
+                <p><em>The default &quot;Reply-To&quot; email address.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_defaultTrack" name="property_defaultTrack" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$defaultTrack</h3>
+                <pre class="signature">$defaultTrack : boolean</pre>
+                <p><em>Whether the email should be tracked by default.</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_defaultLog" name="property_defaultLog" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$defaultLog</h3>
+                <pre class="signature">$defaultLog : boolean</pre>
+                <p><em>Whether the email should be logged by default.</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defaults" name="method_defaults" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defaults()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defaults() : array</pre>
+                <p><em>Default email configuration.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtp" name="method_setSmtp" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtp()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtp(boolean  <span class="argument">$smtp</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set whether SMTP should be used for sending the email.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$smtp </td>
+                                <td><p>If the email should be sent using SMTP or not.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the SMTP state is not a boolean.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtp" name="method_smtp" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtp()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtp() : boolean</pre>
+                <p><em>Determine if SMTP should be used.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpHostname" name="method_setSmtpHostname" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpHostname()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpHostname(string  <span class="argument">$hostname</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the SMTP hostname to be used.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$hostname </td>
+                                <td><p>The SMTP hostname.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the SMTP hostname is not a string.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpHostname" name="method_smtpHostname" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpHostname()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpHostname() : string</pre>
+                <p><em>Get the SMTP hostname.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpPort" name="method_setSmtpPort" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpPort()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpPort(integer  <span class="argument">$port</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the SMTP port to be used.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$port </td>
+                                <td><p>The SMTP port.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the SMTP port is not an integer.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpPort" name="method_smtpPort" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpPort()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpPort() : integer</pre>
+                <p><em>Get the SMTP port.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpAuth" name="method_setSmtpAuth" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpAuth()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpAuth(boolean  <span class="argument">$auth</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set whether SMTP requires authentication.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$auth </td>
+                                <td><p>The SMTP authentication flag (if auth is required).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpAuth" name="method_smtpAuth" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpAuth()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpAuth() : boolean</pre>
+                <p><em>Determine if SMTP requires authentication.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpUsername" name="method_setSmtpUsername" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpUsername()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpUsername(string  <span class="argument">$username</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the SMTP username to be used.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$username </td>
+                                <td><p>The SMTP username, if using authentication.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the SMTP username is not a string.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpUsername" name="method_smtpUsername" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpUsername()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpUsername() : string</pre>
+                <p><em>Get the SMTP username.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpPassword" name="method_setSmtpPassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpPassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpPassword(string  <span class="argument">$password</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the SMTP password to be used.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$password </td>
+                                <td><p>The SMTP password, if using authentication.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the SMTP password is not a string.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpPassword" name="method_smtpPassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpPassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpPassword() : string</pre>
+                <p><em>Get the SMTP password.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSmtpSecurity" name="method_setSmtpSecurity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSmtpSecurity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSmtpSecurity(string  <span class="argument">$security</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the SMTP security type to be used.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$security </td>
+                                <td><p>The SMTP security type (empty, &quot;TLS&quot;, or &quot;SSL&quot;).</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the security type is not valid (empty, &quot;TLS&quot;, or &quot;SSL&quot;).</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_smtpSecurity" name="method_smtpSecurity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">smtpSecurity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">smtpSecurity() : string</pre>
+                <p><em>Get the SMTP security type.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDefaultFrom" name="method_setDefaultFrom" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDefaultFrom()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDefaultFrom(string|array  <span class="argument">$email</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the default sender&#039;s email address.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|array</td>
+                                <td>$email </td>
+                                <td><p>The default &quot;From&quot; email address.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the email address is invalid.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defaultFrom" name="method_defaultFrom" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defaultFrom()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defaultFrom() : string</pre>
+                <p><em>Get the sender email address.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDefaultReplyTo" name="method_setDefaultReplyTo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDefaultReplyTo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDefaultReplyTo(string|array  <span class="argument">$email</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set the default &quot;Reply-To&quot; email address.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|array</td>
+                                <td>$email </td>
+                                <td><p>The default &quot;Reply-To&quot; email address.</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the email address is invalid.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defaultReplyTo" name="method_defaultReplyTo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defaultReplyTo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defaultReplyTo() : string</pre>
+                <p><em>Get the &quot;Reply-To&quot; email address.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDefaultLog" name="method_setDefaultLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDefaultLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDefaultLog(boolean  <span class="argument">$log</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set whether the email should be logged by defaultd.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$log </td>
+                                <td><p>The default log flag.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defaultLog" name="method_defaultLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defaultLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defaultLog() : boolean</pre>
+                <p><em>Determine if the email should be logged by default.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDefaultTrack" name="method_setDefaultTrack" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDefaultTrack()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDefaultTrack(boolean  <span class="argument">$track</span>) : \Charcoal\Email\EmailConfig</pre>
+                <p><em>Set whether the email should be tracked by default.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$track </td>
+                                <td><p>The default track flag.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Charcoal.Email.EmailConfig.html">\Charcoal\Email\EmailConfig</a>
+                                            &mdash; <p>Chainable</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_defaultTrack" name="method_defaultTrack" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">defaultTrack()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">defaultTrack() : boolean</pre>
+                <p><em>Determine if the email should be tracked by default.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_emailToArray" name="method_emailToArray" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">emailToArray()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">emailToArray(mixed  <span class="argument">$var</span>) : string</pre>
+                <p><em>Convert an email address (RFC822) into a proper array notation.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$var </td>
+                                <td><p>An email array (containing an &quot;email&quot; key and optionally a &quot;name&quot; key).</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the email is invalid.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Charcoal.Email.EmailAwareTrait.html"><div class="path-wrapper">\Charcoal\Email\EmailAwareTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_emailFromArray" name="method_emailFromArray" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">emailFromArray()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">emailFromArray(array  <span class="argument">$arr</span>) : string</pre>
+                <p><em>Convert an email address array to a RFC-822 string notation.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$arr </td>
+                                <td><p>An email array (containing an &quot;email&quot; key and optionally a &quot;name&quot; key).</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the email array is invalid.</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Charcoal.Email.EmailAwareTrait.html"><div class="path-wrapper">\Charcoal\Email\EmailAwareTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">EmailConfig.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/EmailConfig.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Charcoal.html">\Charcoal</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on May 13th, 2016 at 03:24.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
