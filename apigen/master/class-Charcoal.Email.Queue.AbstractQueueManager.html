@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\Email\Queue\AbstractQueueManager</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.html">
+						Email<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.Queue.html">
+						Queue					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.Script.html">
+						Script					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.ServiceProvider.html">
+						ServiceProvider					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Charcoal.Email.Queue.AbstractQueueManager.html">AbstractQueueManager</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.Queue.QueueableInterface.html">QueueableInterface</a></li>
+				<li><a href="class-Charcoal.Email.Queue.QueueItemInterface.html">QueueItemInterface</a></li>
+				<li><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">QueueManagerInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.Queue.QueueableTrait.html">QueueableTrait</a></li>
+				<li><a href="class-Charcoal.Email.Queue.QueueItemTrait.html">QueueItemTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.Email.Queue.html" title="Summary of Charcoal\Email\Queue"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class AbstractQueueManager</h1>
+
+
+	<div class="description">
+	<p>Abstract Queue Manager</p>
+
+<p>The queue manager is used to load queued items and batch-process them.</p>
+
+<h2>Loading queued items</h2>
+
+<p>If a "queue_id" is specified, only the item for this specific queue will be loaded.
+Otherwise, all unprocessed queue items will be processed.</p>
+
+<h2>Type of queue items</h2>
+
+<p>The type of queue items can be set in extended concrete class with the
+<code>queue_item_proto()</code> method. This method should return a QueueItemInterface instance.</p>
+
+<h2>Callbacks</h2>
+
+<p>There are 4 available callback methods that can be set:</p>
+
+<ul>
+<li><code>item_callback</code> - Called after an item has been processed. - Arguments: <code>QueueModelInterface $item</code></li>
+<li><code>item_success_callback</code></li>
+<li><code>item_failure_callback</code></li>
+<li><code>processed_callback</code> - Called when the entire queue has been processed - Arguments: <code>array $success</code>, <code>array $failures</code></li>
+</ul>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\Email\Queue\AbstractQueueManager</span></b>			
+			 implements 
+				<a href="class-Charcoal.Email.Queue.QueueManagerInterface.html"><span>Charcoal\Email\Queue\QueueManagerInterface</span></a>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a>\<a href="namespace-Charcoal.Email.Queue.html">Queue</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#12-259" title="Go to source code">Charcoal/Email/Queue/AbstractQueueManager.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#84-92" title="Go to source code">__construct</a>( <span>array <var>$data</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Construct a new queue manager.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Construct a new queue manager.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>Dependencies and settings.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setData" id="_setData">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.AbstractQueueManager.html">Charcoal\Email\Queue\AbstractQueueManager</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setData">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#94-107" title="Go to source code">setData</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the manager's data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the manager's data.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>The queue data to set.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.AbstractQueueManager.html">Charcoal\Email\Queue\AbstractQueueManager</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setQueueId" id="_setQueueId">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.AbstractQueueManager.html">Charcoal\Email\Queue\AbstractQueueManager</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setQueueId">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#109-119" title="Go to source code">setQueueId</a>( <span>mixed <var>$id</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the queue's ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the queue's ID.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd>The unique queue identifier.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.AbstractQueueManager.html">Charcoal\Email\Queue\AbstractQueueManager</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_setQueueId">Charcoal\Email\Queue\QueueManagerInterface::setQueueId()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="queueId" id="_queueId">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_queueId">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#121-129" title="Go to source code">queueId</a>( )</code>
+
+		<div class="description short">
+			<p>Get the queue's ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the queue's ID.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_queueId">Charcoal\Email\Queue\QueueManagerInterface::queueId()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setItemCallback" id="_setItemCallback">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setItemCallback">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#131-141" title="Go to source code">setItemCallback</a>( <span>callable <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the callback routine when an item is processed.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the callback routine when an item is processed.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd>A item callback routine.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setItemSuccessCallback" id="_setItemSuccessCallback">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setItemSuccessCallback">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#143-153" title="Go to source code">setItemSuccessCallback</a>( <span>callable <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the callback routine when the item is resolved.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the callback routine when the item is resolved.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd>A item callback routine.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_setItemSuccessCallback">Charcoal\Email\Queue\QueueManagerInterface::setItemSuccessCallback()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setItemFailureCallback" id="_setItemFailureCallback">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setItemFailureCallback">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#155-165" title="Go to source code">setItemFailureCallback</a>( <span>callable <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the callback routine when the item is rejected.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the callback routine when the item is rejected.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd>A item callback routine.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_setItemFailureCallback">Charcoal\Email\Queue\QueueManagerInterface::setItemFailureCallback()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setProcessedCallback" id="_setProcessedCallback">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setProcessedCallback">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#167-177" title="Go to source code">setProcessedCallback</a>( <span>callable <var>$callback</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the callback routine when the queue is processed.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the callback routine when the queue is processed.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd>A queue callback routine.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html">Charcoal\Email\Queue\QueueManagerInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_setProcessedCallback">Charcoal\Email\Queue\QueueManagerInterface::setProcessedCallback()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="processQueue" id="_processQueue">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_processQueue">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#179-215" title="Go to source code">processQueue</a>( <span>callable <var>$callback</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Process the items of the queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Process the items of the queue.</p>
+
+<p>If no callback is passed and a self::$processedCallback is set, the latter is used.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd><p>An optional alternative callback routine executed
+                           after all queue items are processed.</p></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Success / Failure
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_processQueue">Charcoal\Email\Queue\QueueManagerInterface::processQueue()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadQueueItems" id="_loadQueueItems">
+
+		<td class="attributes"><code>
+			 public 
+
+			Collection
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadQueueItems">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#217-251" title="Go to source code">loadQueueItems</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the items of the current queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the items of the current queue.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Collection
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_loadQueueItems">Charcoal\Email\Queue\QueueManagerInterface::loadQueueItems()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="queueItemProto" id="_queueItemProto">
+
+		<td class="attributes"><code>
+			abstract public 
+
+			<code><a href="class-Charcoal.Email.Queue.QueueItemInterface.html">Charcoal\Email\Queue\QueueItemInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_queueItemProto">#</a>
+		<code><a href="source-class-Charcoal.Email.Queue.AbstractQueueManager.html#253-258" title="Go to source code">queueItemProto</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the queue item's model.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the queue item's model.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Queue.QueueItemInterface.html">Charcoal\Email\Queue\QueueItemInterface</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.Queue.QueueManagerInterface.html#_queueItemProto">Charcoal\Email\Queue\QueueManagerInterface::queueItemProto()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

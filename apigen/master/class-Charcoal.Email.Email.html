@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\Email\Email</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.html">
+						Email<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.Email.Queue.html">
+						Queue					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.Script.html">
+						Script					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.ServiceProvider.html">
+						ServiceProvider					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Charcoal.Email.Email.html">Email</a></li>
+				<li><a href="class-Charcoal.Email.EmailConfig.html">EmailConfig</a></li>
+				<li><a href="class-Charcoal.Email.EmailLog.html">EmailLog</a></li>
+				<li><a href="class-Charcoal.Email.EmailQueueItem.html">EmailQueueItem</a></li>
+				<li><a href="class-Charcoal.Email.EmailQueueManager.html">EmailQueueManager</a></li>
+				<li><a href="class-Charcoal.Email.GenericEmailTemplate.html">GenericEmailTemplate</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.EmailInterface.html">EmailInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.EmailAwareTrait.html">EmailAwareTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.Email.html" title="Summary of Charcoal\Email"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Email</h1>
+
+
+	<div class="description">
+	<p>Default implementation of the <code>EmailInterface</code>.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\Email\Email</span></b>			
+			 implements 
+<span>Charcoal\Config\ConfigurableInterface</span>, 
+			
+				<a href="class-Charcoal.Email.EmailInterface.html"><span>Charcoal\Email\EmailInterface</span></a>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>, 
+			
+				<a href="class-Charcoal.Email.Queue.QueueableInterface.html"><span>Charcoal\Email\Queue\QueueableInterface</span></a>, 
+			
+<span>Charcoal\View\ViewableInterface</span>
+			
+			 uses 
+					Charcoal\Config\ConfigurableTrait (not available)
+
+			
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+					<a href="class-Charcoal.Email.Queue.QueueableTrait.html"><span>Charcoal\Email\Queue\QueueableTrait</span></a>, 
+			
+					Charcoal\View\ViewableTrait (not available)
+
+			
+					<a href="class-Charcoal.Email.EmailAwareTrait.html"><span>Charcoal\Email\EmailAwareTrait</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.Email.Email.html#35-1049" title="Go to source code">Charcoal/Email/Email.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#145-161" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Construct a new Email object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Construct a new Email object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>Dependencies and settings.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setData" id="_setData">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Email.html">Charcoal\Email\Email</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setData">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#163-182" title="Go to source code">setData</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's data.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>The data to set.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Email.html">Charcoal\Email\Email</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setData">Charcoal\Email\EmailInterface::setData()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCampaign" id="_setCampaign">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCampaign">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#184-202" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the campaign ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the campaign ID.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$campaign</var></dt>
+					<dd>The campaign identifier.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the campaign is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setCampaign">Charcoal\Email\EmailInterface::setCampaign()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="campaign" id="_campaign">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_campaign">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#204-218" title="Go to source code">campaign</a>( )</code>
+
+		<div class="description short">
+			<p>Get the campaign identifier.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the campaign identifier.</p>
+
+<p>If it has not been explicitely set, it will be auto-generated (with uniqid).</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_campaign">Charcoal\Email\EmailInterface::campaign()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="generateCampaign" id="_generateCampaign">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_generateCampaign">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#220-228" title="Go to source code">generateCampaign</a>( )</code>
+
+		<div class="description short">
+			<p>Generates a unique identifier ideal for a campaign ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Generates a unique identifier ideal for a campaign ID.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTo" id="_setTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTo">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#230-262" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the recipient email address(es).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the recipient email address(es).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The recipient email address(es).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setTo">Charcoal\Email\EmailInterface::setTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addTo" id="_addTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addTo">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#264-284" title="Go to source code">addTo</a>( <span>mixed <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Add a recipient email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add a recipient email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The recipient email address to add.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_addTo">Charcoal\Email\EmailInterface::addTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="to" id="_to">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_to">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#286-294" title="Go to source code">to</a>( )</code>
+
+		<div class="description short">
+			<p>Get the recipient's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the recipient's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_to">Charcoal\Email\EmailInterface::to()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCc" id="_setCc">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#296-328" title="Go to source code">setCc</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the carbon copy (CC) recipient email address(es).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the carbon copy (CC) recipient email address(es).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The CC recipient email address(es).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setCc">Charcoal\Email\EmailInterface::setCc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addCc" id="_addCc">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addCc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#330-350" title="Go to source code">addCc</a>( <span>mixed <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Add a CC recipient email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add a CC recipient email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The CC recipient email address to add.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_addCc">Charcoal\Email\EmailInterface::addCc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cc" id="_cc">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#352-360" title="Go to source code">cc</a>( )</code>
+
+		<div class="description short">
+			<p>Get the CC recipient's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the CC recipient's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_cc">Charcoal\Email\EmailInterface::cc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setBcc" id="_setBcc">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setBcc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#362-395" title="Go to source code">setBcc</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the blind carbon copy (BCC) recipient email address(es).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the blind carbon copy (BCC) recipient email address(es).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The BCC recipient email address(es).</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setBcc">Charcoal\Email\EmailInterface::setBcc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addBcc" id="_addBcc">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addBcc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#397-417" title="Go to source code">addBcc</a>( <span>mixed <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Add a BCC recipient email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add a BCC recipient email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The BCC recipient email address to add.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_addBcc">Charcoal\Email\EmailInterface::addBcc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bcc" id="_bcc">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bcc">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#419-427" title="Go to source code">bcc</a>( )</code>
+
+		<div class="description short">
+			<p>Get the BCC recipient's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the BCC recipient's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_bcc">Charcoal\Email\EmailInterface::bcc()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setFrom" id="_setFrom">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setFrom">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#429-450" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the sender's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the sender's email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>An email address.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email is not a string or an array.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setFrom">Charcoal\Email\EmailInterface::setFrom()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="from" id="_from">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_from">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#452-464" title="Go to source code">from</a>( )</code>
+
+		<div class="description short">
+			<p>Get the sender's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the sender's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_from">Charcoal\Email\EmailInterface::from()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setReplyTo" id="_setReplyTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setReplyTo">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#466-486" title="Go to source code">setReplyTo</a>( <span>mixed <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set email address to reply to the message.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set email address to reply to the message.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>The sender's "Reply-To" email address.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email is not a string or an array.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setReplyTo">Charcoal\Email\EmailInterface::setReplyTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="replyTo" id="_replyTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_replyTo">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#488-500" title="Go to source code">replyTo</a>( )</code>
+
+		<div class="description short">
+			<p>Get email address to reply to the message.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get email address to reply to the message.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_replyTo">Charcoal\Email\EmailInterface::replyTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSubject" id="_setSubject">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSubject">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#502-520" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email subject.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email subject.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd>The email subject.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the subject is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setSubject">Charcoal\Email\EmailInterface::setSubject()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="subject" id="_subject">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_subject">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#522-530" title="Go to source code">subject</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email subject.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email subject.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The emails' subject.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_subject">Charcoal\Email\EmailInterface::subject()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgHtml" id="_setMsgHtml">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#532-550" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's HTML message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's HTML message body.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$body</var></dt>
+					<dd>The HTML message body.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the message is not a string.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setMsgHtml">Charcoal\Email\EmailInterface::setMsgHtml()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msgHtml" id="_msgHtml">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msgHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#552-566" title="Go to source code">msgHtml</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's HTML message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's HTML message body.</p>
+
+<p>If the message is not explitely set, it will be
+auto-generated from a template view.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_msgHtml">Charcoal\Email\EmailInterface::msgHtml()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="generateMsgHtml" id="_generateMsgHtml">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_generateMsgHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#568-585" title="Go to source code">generateMsgHtml</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's HTML message from the template, if applicable.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's HTML message from the template, if applicable.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						ViewableInterface::renderTemplate()<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgTxt" id="_setMsgTxt">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgTxt">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#587-605" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's plain-text message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's plain-text message body.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$body</var></dt>
+					<dd>The message's text body.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the parameter is invalid.
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setMsgTxt">Charcoal\Email\EmailInterface::setMsgTxt()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msgTxt" id="_msgTxt">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msgTxt">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#607-622" title="Go to source code">msgTxt</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's plain-text message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's plain-text message body.</p>
+
+<p>If the plain-text message is not explitely set,
+it will be auto-generated from the HTML message.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_msgTxt">Charcoal\Email\EmailInterface::msgTxt()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="stripHtml" id="_stripHtml">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_stripHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#624-661" title="Go to source code">stripHtml</a>( <span>string <var>$html</var></span> )</code>
+
+		<div class="description short">
+			<p>Convert an HTML string to plain-text.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Convert an HTML string to plain-text.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$html</var></dt>
+					<dd>The HTML string to convert.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The resulting plain-text string.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setAttachments" id="_setAttachments">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setAttachments">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#663-676" title="Go to source code">setAttachments</a>( <span>array <var>$attachments</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's attachments.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's attachments.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$attachments</var></dt>
+					<dd>The file attachments.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setAttachments">Charcoal\Email\EmailInterface::setAttachments()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addAttachment" id="_addAttachment">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addAttachment">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#678-688" title="Go to source code">addAttachment</a>( <span>mixed <var>$attachment</var></span> )</code>
+
+		<div class="description short">
+			<p>Add an attachment to the email.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add an attachment to the email.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$attachment</var></dt>
+					<dd>A single file attachment.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_addAttachment">Charcoal\Email\EmailInterface::addAttachment()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="attachments" id="_attachments">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_attachments">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#690-698" title="Go to source code">attachments</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's attachments.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's attachments.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_attachments">Charcoal\Email\EmailInterface::attachments()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLog" id="_setLog">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLog">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#700-710" title="Go to source code">setLog</a>( <span>boolean <var>$log</var></span> )</code>
+
+		<div class="description short">
+			<p>Enable or disable logging for this particular email.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Enable or disable logging for this particular email.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$log</var></dt>
+					<dd>The log flag.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setLog">Charcoal\Email\EmailInterface::setLog()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="log" id="_log">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_log">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#712-723" title="Go to source code">log</a>( )</code>
+
+		<div class="description short">
+			<p>Determine if logging is enabled for this particular email.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if logging is enabled for this particular email.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_log">Charcoal\Email\EmailInterface::log()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTrack" id="_setTrack">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTrack">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#725-735" title="Go to source code">setTrack</a>( <span>boolean <var>$track</var></span> )</code>
+
+		<div class="description short">
+			<p>Enable or disable tracking for this particular email.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Enable or disable tracking for this particular email.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$track</var></dt>
+					<dd>The track flag.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailInterface.html">Charcoal\Email\EmailInterface</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_setTrack">Charcoal\Email\EmailInterface::setTrack()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="track" id="_track">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_track">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#737-748" title="Go to source code">track</a>( )</code>
+
+		<div class="description short">
+			<p>Determine if tracking is enabled for this particular email.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if tracking is enabled for this particular email.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_track">Charcoal\Email\EmailInterface::track()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#750-826" title="Go to source code">send</a>( )</code>
+
+		<div class="description short">
+			<p>Send the email to all recipients</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Send the email to all recipients</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Success / Failure.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_send">Charcoal\Email\EmailInterface::send()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSmtpOptions" id="_setSmtpOptions">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSmtpOptions">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#828-852" title="Go to source code">setSmtpOptions</a>( <span>PHPMailer\PHPMailer\PHPMailer\PHPMailer\PHPMailer <var>$mail</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the SMTP's options for PHPMailer.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the SMTP's options for PHPMailer.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$mail</var></dt>
+					<dd>The PHPMailer to setup.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="queue" id="_queue">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_queue">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#854-886" title="Go to source code">queue</a>( <span>mixed <var>$ts</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Enqueue the email for each recipient.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Enqueue the email for each recipient.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ts</var></dt>
+					<dd>A date/time to initiate the queue processing.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Success / Failure.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Email.EmailInterface.html#_queue">Charcoal\Email\EmailInterface::queue()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="logSend" id="_logSend">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_logSend">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#888-938" title="Go to source code">logSend</a>( <span>boolean <var>$result</var></span>, <span>mixed <var>$mailer</var></span> )</code>
+
+		<div class="description short">
+			<p>Log the send event for each recipient.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Log the send event for each recipient.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$result</var></dt>
+					<dd>Success or failure.</dd>
+					<dt><var>$mailer</var></dt>
+					<dd>The raw mailer.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="logQueue" id="_logQueue">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_logQueue">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#940-949" title="Go to source code">logQueue</a>( )</code>
+
+		<div class="description short">
+			<p>Log the queue event.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Log the queue event.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTemplateData" id="_setTemplateData">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.Email.html">Charcoal\Email\Email</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTemplateData">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#951-961" title="Go to source code">setTemplateData</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the template data for the view.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the template data for the view.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd>The template data.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.Email.html">Charcoal\Email\Email</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="templateData" id="_templateData">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_templateData">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#963-971" title="Go to source code">templateData</a>( )</code>
+
+		<div class="description short">
+			<p>Get the template data for the view.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the template data for the view.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="viewController" id="_viewController">
+
+		<td class="attributes"><code>
+			 public 
+
+			TemplateInterface|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_viewController">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#973-1000" title="Go to source code">viewController</a>( )</code>
+
+		<div class="description short">
+			<p>Get the custom view controller for rendering
+the email's HTML message.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the custom view controller for rendering
+the email's HTML message.</p>
+
+<p>Unlike typical <code>ViewableInterface</code> objects, the view controller is not
+the email itself but an external "email" template.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					TemplateInterface|array
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						ViewableInterface::viewController()<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getter" id="_getter">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getter">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#1002-1012" title="Go to source code">getter</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			<p>Allow an object to define how the key getter are called.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Allow an object to define how the key getter are called.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>The key to get the getter from.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The getter method name, for a given key.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setter" id="_setter">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setter">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#1014-1025" title="Go to source code">setter</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			<p>Allow an object to define how the key setter are called.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Allow an object to define how the key setter are called.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd>The key to get the setter from.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The setter method name, for a given key.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createConfig" id="_createConfig">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailConfig.html">Charcoal\Email\EmailConfig</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createConfig">#</a>
+		<code><a href="source-class-Charcoal.Email.Email.html#1038-1048" title="Go to source code">createConfig</a>( )</code>
+
+		<div class="description short">
+			<p>Temporary hack to fulfills the Configurable Interface.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Temporary hack to fulfills the Configurable Interface.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailConfig.html">Charcoal\Email\EmailConfig</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Email.Queue.QueueableInterface.html#methods">Charcoal\Email\Queue\QueueableInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Email.Queue.QueueableInterface.html#_queueId">queueId()</a>, 
+			<a href="class-Charcoal.Email.Queue.QueueableInterface.html#_setQueueId">setQueueId()</a>
+		</code></td>
+	</tr>
+	</table>
+
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Email.Queue.QueueableTrait.html#methods">Charcoal\Email\Queue\QueueableTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Email.Queue.QueueableTrait.html#_queueId">queueId()</a>, 
+			<a href="class-Charcoal.Email.Queue.QueueableTrait.html#_setQueueId">setQueueId()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Email.EmailAwareTrait.html#methods">Charcoal\Email\EmailAwareTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Email.EmailAwareTrait.html#_emailFromArray">emailFromArray()</a>, 
+			<a href="class-Charcoal.Email.EmailAwareTrait.html#_emailToArray">emailToArray()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

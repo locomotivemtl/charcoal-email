@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\Email\EmailQueueItem</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.html">
+						Email<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.Email.Queue.html">
+						Queue					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.Script.html">
+						Script					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.ServiceProvider.html">
+						ServiceProvider					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.Email.html">Email</a></li>
+				<li><a href="class-Charcoal.Email.EmailConfig.html">EmailConfig</a></li>
+				<li><a href="class-Charcoal.Email.EmailLog.html">EmailLog</a></li>
+				<li class="active"><a href="class-Charcoal.Email.EmailQueueItem.html">EmailQueueItem</a></li>
+				<li><a href="class-Charcoal.Email.EmailQueueManager.html">EmailQueueManager</a></li>
+				<li><a href="class-Charcoal.Email.GenericEmailTemplate.html">GenericEmailTemplate</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.EmailInterface.html">EmailInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.Email.EmailAwareTrait.html">EmailAwareTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.Email.html" title="Summary of Charcoal\Email"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class EmailQueueItem</h1>
+
+
+	<div class="description">
+	<p>Email queue item.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Charcoal\Model\AbstractModel
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\Email\EmailQueueItem</span></b>			
+			 implements 
+<span>Charcoal\Queue\QueueItemInterface</span>
+			
+			 uses 
+					Charcoal\Queue\QueueItemTrait (not available)
+
+			
+					<a href="class-Charcoal.Email.EmailAwareTrait.html"><span>Charcoal\Email\EmailAwareTrait</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.Email.EmailQueueItem.html#19-380" title="Go to source code">Charcoal/Email/EmailQueueItem.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="key" id="_key">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_key">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#76-84" title="Go to source code">key</a>( )</code>
+
+		<div class="description short">
+			<p>Get the primary key that uniquely identifies each queue item.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the primary key that uniquely identifies each queue item.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setIdent" id="_setIdent">
+
+		<td class="attributes"><code>
+			 public 
+
+			AbstractMessage
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setIdent">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#86-109" title="Go to source code">setIdent</a>( <span>string|null <var>$ident</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the queue item's ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the queue item's ID.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$ident</var></dt>
+					<dd>The unique queue item identifier.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					AbstractMessage<br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the identifier is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ident" id="_ident">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ident">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#111-119" title="Go to source code">ident</a>( )</code>
+
+		<div class="description short">
+			<p>Get the queue item's ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the queue item's ID.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTo" id="_setTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTo">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#121-143" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the recipient's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the recipient's email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>An email address.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="to" id="_to">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_to">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#145-153" title="Go to source code">to</a>( )</code>
+
+		<div class="description short">
+			<p>Get the recipient's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the recipient's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setFrom" id="_setFrom">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setFrom">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#155-177" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the sender's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the sender's email address.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd>An email address.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the email address is invalid.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="from" id="_from">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_from">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#179-187" title="Go to source code">from</a>( )</code>
+
+		<div class="description short">
+			<p>Get the sender's email address.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the sender's email address.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSubject" id="_setSubject">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSubject">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#189-207" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email subject.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email subject.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd>The email subject.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the subject is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="subject" id="_subject">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_subject">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#209-217" title="Go to source code">subject</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email subject.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email subject.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgHtml" id="_setMsgHtml">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#219-237" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's HTML message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's HTML message body.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$body</var></dt>
+					<dd>The HTML message body.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the message is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msgHtml" id="_msgHtml">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msgHtml">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#239-247" title="Go to source code">msgHtml</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's HTML message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's HTML message body.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMsgTxt" id="_setMsgTxt">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMsgTxt">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#249-267" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the email's plain-text message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the email's plain-text message body.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$body</var></dt>
+					<dd>The plain-text mesage body.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the message is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msgTxt" id="_msgTxt">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msgTxt">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#269-277" title="Go to source code">msgTxt</a>( )</code>
+
+		<div class="description short">
+			<p>Get the email's plain-text message body.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the email's plain-text message body.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCampaign" id="_setCampaign">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCampaign">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#279-297" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the campaign ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the campaign ID.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$campaign</var></dt>
+					<dd>The campaign identifier.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Email.EmailQueueItem.html">Charcoal\Email\EmailQueueItem</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the campaign is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="campaign" id="_campaign">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_campaign">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#299-309" title="Go to source code">campaign</a>( )</code>
+
+		<div class="description short">
+			<p>Get the campaign ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the campaign ID.</p>
+
+<p>If it has not been explicitely set, it will be auto-generated (with uniqid).</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process" id="_process">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#311-365" title="Go to source code">process</a>( <span>callable <var>$callback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$successCallback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$failureCallback</var> = <span class="php-keyword1">null</span> </span> )</code>
+
+		<div class="description short">
+			<p>Process the item.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Process the item.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$callback</var></dt>
+					<dd>An optional callback routine executed after the item is processed.</dd>
+					<dt><var>$successCallback</var></dt>
+					<dd>An optional callback routine executed when the item is resolved.</dd>
+					<dt><var>$failureCallback</var></dt>
+					<dd>An optional callback routine executed when the item is rejected.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Success / Failure
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="preSave" id="_preSave">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_preSave">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#367-379" title="Go to source code">preSave</a>( )</code>
+
+		<div class="description short">
+			<p>Hook called before saving the item.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Hook called before saving the item.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Email.EmailAwareTrait.html#methods">Charcoal\Email\EmailAwareTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Email.EmailAwareTrait.html#_emailFromArray">emailFromArray()</a>, 
+			<a href="class-Charcoal.Email.EmailAwareTrait.html#_emailToArray">emailToArray()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
