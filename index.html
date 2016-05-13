@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Charcoal-email by locomotivemtl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Charcoal-email</h1>
+      <h2 class="project-tagline">Charcoal email sending (with phpmailer) and queue management.</h2>
+      <a href="https://github.com/locomotivemtl/charcoal-email" class="btn">View on GitHub</a>
+      <a href="https://github.com/locomotivemtl/charcoal-email/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/locomotivemtl/charcoal-email/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="charcoal-email" class="anchor" href="#charcoal-email" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charcoal Email</h1>
+
+<p>Sending emails (with PHPMailer) and queue management.</p>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install</h1>
+
+<p>The preferred (and only supported) way of installing <em>charcoal-email</em> is with <strong>composer</strong>:</p>
+
+<div class="highlight highlight-source-shell"><pre>★ composer require locomotivemtl/charcoal-email<span class="pl-s"><span class="pl-pds">`</span></span></pre></div>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>[<code>PHP 5.5+</code>]](<a href="http://php.net">http://php.net</a>)</li>
+<li><code>phpmailer/phpmailer</code></li>
+<li><a href="https://github.com/locomotivemtl/charcoal-config"><code>locomotivemtl/charcoal-config</code></a></li>
+<li><a href="https://github.com/locomotivemtl/charcoal-app"><code>locomotivemtl/charcoal-app</code></a></li>
+</ul>
+
+<h1>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h1>
+
+<p>To install the development environment:</p>
+
+<div class="highlight highlight-source-shell"><pre>★ composer install --prefer-source</pre></div>
+
+<p>To run the scripts (phplint, phpcs and phpunit):</p>
+
+<div class="highlight highlight-source-shell"><pre>★ composer <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="development-dependencies" class="anchor" href="#development-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development dependencies</h2>
+
+<ul>
+<li><code>phpunit/phpunit</code></li>
+<li><code>squizlabs/php_codesniffer</code></li>
+<li><code>satooshi/php-coveralls</code></li>
+</ul>
+
+<h2>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Continuous Integration</h2>
+
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Badge</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-email">Travis</a></td>
+<td><a href="https://travis-ci.org/locomotivemtl/charcoal-email"><img src="https://travis-ci.org/locomotivemtl/charcoal-email.svg?branch=master" alt="Build Status"></a></td>
+<td>Runs code sniff check and unit tests. Auto-generates API documentation.</td>
+</tr>
+<tr>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/">Scrutinizer</a></td>
+<td><a href="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/?branch=master"><img src="https://scrutinizer-ci.com/g/locomotivemtl/charcoal-email/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></td>
+<td>Code quality checker. Also validates API documentation quality.</td>
+</tr>
+<tr>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-email">Coveralls</a></td>
+<td><a href="https://coveralls.io/github/locomotivemtl/charcoal-email?branch=master"><img src="https://coveralls.io/repos/github/locomotivemtl/charcoal-email/badge.svg?branch=master" alt="Coverage Status"></a></td>
+<td>Unit Tests code coverage.</td>
+</tr>
+<tr>
+<td><a href="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a">Sensiolabs</a></td>
+<td><a href="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a"><img src="https://insight.sensiolabs.com/projects/533b5796-7e69-42a7-a046-71342146308a/mini.png" alt="SensioLabsInsight"></a></td>
+<td>Another code quality checker, focused on PHP.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="coding-style" class="anchor" href="#coding-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coding Style</h2>
+
+<p>The Charcoal-Email module follows the Charcoal coding-style:</p>
+
+<ul>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md"><em>PSR-1</em></a></li>
+<li><a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md"><em>PSR-2</em></a></li>
+<li>
+<a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md"><em>PSR-4</em></a>, autoloading is therefore provided by <em>Composer</em>.</li>
+<li>
+<a href="http://phpdoc.org/"><em>phpDocumentor</em></a> comments.</li>
+<li>Read the <a href="phpcs.xml">phpcs.xml</a> file for all the details on code style.</li>
+</ul>
+
+<blockquote>
+<p>Coding style validation / enforcement can be performed with <code>composer phpcs</code>. An auto-fixer is also available with <code>composer phpcbf</code>.</p>
+</blockquote>
+
+<h2>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors</h2>
+
+<ul>
+<li>Mathieu Ducharme <a href="mailto:mat@locomotive.ca">mat@locomotive.ca</a>
+</li>
+<li>Chauncey McAskill <a href="mailto:chauncey@locomotive.ca">chauncey@locomotive.ca</a>
+</li>
+<li>Benjamin Roch <a href="mailto:benjamin@locomotive.ca">benjamin@locomotive.ca</a>
+</li>
+</ul>
+
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h3>
+<a id="01" class="anchor" href="#01" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.1</h3>
+
+<p>-Unreleased</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<p><strong>The MIT License (MIT)</strong></p>
+
+<p><em>Copyright © 2016 Locomotive inc.</em></p>
+
+<blockquote>
+<p>See <a href="#authors">Authors</a>.</p>
+</blockquote>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/locomotivemtl/charcoal-email">Charcoal-email</a> is maintained by <a href="https://github.com/locomotivemtl">locomotivemtl</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
