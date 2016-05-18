@@ -148,7 +148,7 @@ Charcoal\Model\AbstractModel
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Email.EmailQueueItem.html#19-380" title="Go to source code">Charcoal/Email/EmailQueueItem.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Email.EmailQueueItem.html#22-412" title="Go to source code">Charcoal/Email/EmailQueueItem.php</a>
 		<br>
 	</div>
 
@@ -156,6 +156,110 @@ Charcoal\Model\AbstractModel
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
+	<tr data-order="setDependencies" id="_setDependencies">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDependencies">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#84-91" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd>Pimple DI container.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setEmailFactory" id="_setEmailFactory">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setEmailFactory">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#93-100" title="Go to source code">setEmailFactory</a>( <span>Charcoal\Email\FactoryInterface <var>$factory</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$factory</var></dt>
+					<dd>The factory to create email objects.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailFactory" id="_emailFactory">
+
+		<td class="attributes"><code>
+			 protected 
+
+			FactoryInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_emailFactory">#</a>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#102-108" title="Go to source code">emailFactory</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					FactoryInterface
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="key" id="_key">
 
 		<td class="attributes"><code>
@@ -168,7 +272,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_key">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#76-84" title="Go to source code">key</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#110-118" title="Go to source code">key</a>( )</code>
 
 		<div class="description short">
 			<p>Get the primary key that uniquely identifies each queue item.</p>
@@ -202,7 +306,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setIdent">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#86-109" title="Go to source code">setIdent</a>( <span>string|null <var>$ident</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#120-143" title="Go to source code">setIdent</a>( <span>string|null <var>$ident</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the queue item's ID.</p>
@@ -245,7 +349,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_ident">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#111-119" title="Go to source code">ident</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#145-153" title="Go to source code">ident</a>( )</code>
 
 		<div class="description short">
 			<p>Get the queue item's ID.</p>
@@ -279,7 +383,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTo">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#121-143" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#155-177" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the recipient's email address.</p>
@@ -322,7 +426,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_to">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#145-153" title="Go to source code">to</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#179-187" title="Go to source code">to</a>( )</code>
 
 		<div class="description short">
 			<p>Get the recipient's email address.</p>
@@ -356,7 +460,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFrom">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#155-177" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#189-211" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the sender's email address.</p>
@@ -399,7 +503,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_from">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#179-187" title="Go to source code">from</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#213-221" title="Go to source code">from</a>( )</code>
 
 		<div class="description short">
 			<p>Get the sender's email address.</p>
@@ -433,7 +537,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSubject">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#189-207" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#223-241" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email subject.</p>
@@ -476,7 +580,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_subject">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#209-217" title="Go to source code">subject</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#243-251" title="Go to source code">subject</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email subject.</p>
@@ -510,7 +614,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMsgHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#219-237" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#253-271" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's HTML message body.</p>
@@ -553,7 +657,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_msgHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#239-247" title="Go to source code">msgHtml</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#273-281" title="Go to source code">msgHtml</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's HTML message body.</p>
@@ -587,7 +691,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMsgTxt">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#249-267" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#283-301" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's plain-text message body.</p>
@@ -630,7 +734,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_msgTxt">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#269-277" title="Go to source code">msgTxt</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#303-311" title="Go to source code">msgTxt</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's plain-text message body.</p>
@@ -664,7 +768,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCampaign">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#279-297" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#313-331" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the campaign ID.</p>
@@ -707,7 +811,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_campaign">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#299-309" title="Go to source code">campaign</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#333-343" title="Go to source code">campaign</a>( )</code>
 
 		<div class="description short">
 			<p>Get the campaign ID.</p>
@@ -743,7 +847,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_process">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#311-365" title="Go to source code">process</a>( <span>callable <var>$callback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$successCallback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$failureCallback</var> = <span class="php-keyword1">null</span> </span> )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#345-396" title="Go to source code">process</a>( <span>callable <var>$callback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$successCallback</var> = <span class="php-keyword1">null</span></span>, <span>callable <var>$failureCallback</var> = <span class="php-keyword1">null</span> </span> )</code>
 
 		<div class="description short">
 			<p>Process the item.</p>
@@ -786,7 +890,7 @@ Charcoal\Model\AbstractModel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_preSave">#</a>
-		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#367-379" title="Go to source code">preSave</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.EmailQueueItem.html#398-411" title="Go to source code">preSave</a>( )</code>
 
 		<div class="description short">
 			<p>Hook called before saving the item.</p>
@@ -803,6 +907,10 @@ Charcoal\Model\AbstractModel
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Email.Queue.QueueItemTrait.html#_preSaveQueueItem">Charcoal\Email\Queue\QueueItemTrait::preSaveQueueItem()</a></code><br>
+				</div>
 
 
 		</div>
