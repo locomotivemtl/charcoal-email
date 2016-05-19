@@ -31,11 +31,6 @@
 
 						<ul>
 				<li>
-					<a href="namespace-Charcoal.Email.Queue.html">
-						Queue					</a>
-
-						</li>
-				<li>
 					<a href="namespace-Charcoal.Email.Script.html">
 						Script					</a>
 
@@ -124,7 +119,7 @@
 			
 <span>Psr\Log\LoggerAwareInterface</span>, 
 			
-				<a href="class-Charcoal.Email.Queue.QueueableInterface.html"><span>Charcoal\Email\Queue\QueueableInterface</span></a>, 
+<span>Charcoal\Queue\QueueableInterface</span>, 
 			
 <span>Charcoal\View\ViewableInterface</span>
 			
@@ -135,7 +130,8 @@
 					Psr\Log\LoggerAwareTrait (not available)
 
 			
-					<a href="class-Charcoal.Email.Queue.QueueableTrait.html"><span>Charcoal\Email\Queue\QueueableTrait</span></a>, 
+					Charcoal\Queue\QueueableTrait (not available)
+
 			
 					Charcoal\View\ViewableTrait (not available)
 
@@ -158,7 +154,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Email.Email.html#35-1111" title="Go to source code">Charcoal/Email/Email.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Email.Email.html#37-1113" title="Go to source code">Charcoal/Email/Email.php</a>
 		<br>
 	</div>
 
@@ -178,7 +174,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#160-174" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#162-176" title="Go to source code">__construct</a>( <span>array <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Construct a new Email object.</p>
@@ -213,7 +209,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTemplateFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#176-184" title="Go to source code">setTemplateFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#178-186" title="Go to source code">setTemplateFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
 
 		<div class="description short">
 			
@@ -252,7 +248,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_templateFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#186-192" title="Go to source code">templateFactory</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#188-194" title="Go to source code">templateFactory</a>( )</code>
 
 		<div class="description short">
 			
@@ -286,7 +282,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setQueueItemFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#194-202" title="Go to source code">setQueueItemFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#196-204" title="Go to source code">setQueueItemFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
 
 		<div class="description short">
 			
@@ -325,7 +321,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_queueItemFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#204-210" title="Go to source code">queueItemFactory</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#206-212" title="Go to source code">queueItemFactory</a>( )</code>
 
 		<div class="description short">
 			
@@ -359,7 +355,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setLogFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#212-220" title="Go to source code">setLogFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#214-222" title="Go to source code">setLogFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
 
 		<div class="description short">
 			
@@ -398,7 +394,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_logFactory">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#222-228" title="Go to source code">logFactory</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#224-230" title="Go to source code">logFactory</a>( )</code>
 
 		<div class="description short">
 			
@@ -432,7 +428,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setData">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#230-248" title="Go to source code">setData</a>( <span>array <var>$data</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#232-250" title="Go to source code">setData</a>( <span>array <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's data.</p>
@@ -473,7 +469,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCampaign">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#250-268" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#252-270" title="Go to source code">setCampaign</a>( <span>string <var>$campaign</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the campaign ID.</p>
@@ -518,7 +514,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_campaign">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#270-284" title="Go to source code">campaign</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#272-286" title="Go to source code">campaign</a>( )</code>
 
 		<div class="description short">
 			<p>Get the campaign identifier.</p>
@@ -556,7 +552,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateCampaign">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#286-294" title="Go to source code">generateCampaign</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#288-296" title="Go to source code">generateCampaign</a>( )</code>
 
 		<div class="description short">
 			<p>Generates a unique identifier ideal for a campaign ID.</p>
@@ -590,7 +586,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTo">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#296-328" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#298-330" title="Go to source code">setTo</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the recipient email address(es).</p>
@@ -635,7 +631,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addTo">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#330-350" title="Go to source code">addTo</a>( <span>mixed <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#332-352" title="Go to source code">addTo</a>( <span>mixed <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Add a recipient email address.</p>
@@ -680,7 +676,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_to">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#352-360" title="Go to source code">to</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#354-362" title="Go to source code">to</a>( )</code>
 
 		<div class="description short">
 			<p>Get the recipient's email address.</p>
@@ -716,7 +712,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#362-394" title="Go to source code">setCc</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#364-396" title="Go to source code">setCc</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the carbon copy (CC) recipient email address(es).</p>
@@ -761,7 +757,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addCc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#396-416" title="Go to source code">addCc</a>( <span>mixed <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#398-418" title="Go to source code">addCc</a>( <span>mixed <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Add a CC recipient email address.</p>
@@ -806,7 +802,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_cc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#418-426" title="Go to source code">cc</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#420-428" title="Go to source code">cc</a>( )</code>
 
 		<div class="description short">
 			<p>Get the CC recipient's email address.</p>
@@ -842,7 +838,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setBcc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#428-461" title="Go to source code">setBcc</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#430-463" title="Go to source code">setBcc</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the blind carbon copy (BCC) recipient email address(es).</p>
@@ -887,7 +883,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addBcc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#463-483" title="Go to source code">addBcc</a>( <span>mixed <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#465-485" title="Go to source code">addBcc</a>( <span>mixed <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Add a BCC recipient email address.</p>
@@ -932,7 +928,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bcc">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#485-493" title="Go to source code">bcc</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#487-495" title="Go to source code">bcc</a>( )</code>
 
 		<div class="description short">
 			<p>Get the BCC recipient's email address.</p>
@@ -968,7 +964,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFrom">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#495-516" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#497-518" title="Go to source code">setFrom</a>( <span>string|array <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the sender's email address.</p>
@@ -1013,7 +1009,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_from">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#518-530" title="Go to source code">from</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#520-532" title="Go to source code">from</a>( )</code>
 
 		<div class="description short">
 			<p>Get the sender's email address.</p>
@@ -1049,7 +1045,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setReplyTo">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#532-552" title="Go to source code">setReplyTo</a>( <span>mixed <var>$email</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#534-554" title="Go to source code">setReplyTo</a>( <span>mixed <var>$email</var></span> )</code>
 
 		<div class="description short">
 			<p>Set email address to reply to the message.</p>
@@ -1094,7 +1090,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_replyTo">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#554-566" title="Go to source code">replyTo</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#556-568" title="Go to source code">replyTo</a>( )</code>
 
 		<div class="description short">
 			<p>Get email address to reply to the message.</p>
@@ -1130,7 +1126,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSubject">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#568-586" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#570-588" title="Go to source code">setSubject</a>( <span>string <var>$subject</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email subject.</p>
@@ -1175,7 +1171,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_subject">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#588-596" title="Go to source code">subject</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#590-598" title="Go to source code">subject</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email subject.</p>
@@ -1211,7 +1207,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMsgHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#598-616" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#600-618" title="Go to source code">setMsgHtml</a>( <span>string <var>$body</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's HTML message body.</p>
@@ -1256,7 +1252,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_msgHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#618-632" title="Go to source code">msgHtml</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#620-634" title="Go to source code">msgHtml</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's HTML message body.</p>
@@ -1295,7 +1291,7 @@ auto-generated from a template view.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateMsgHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#634-651" title="Go to source code">generateMsgHtml</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#636-653" title="Go to source code">generateMsgHtml</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's HTML message from the template, if applicable.</p>
@@ -1333,7 +1329,7 @@ auto-generated from a template view.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMsgTxt">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#653-671" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#655-673" title="Go to source code">setMsgTxt</a>( <span>string <var>$body</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's plain-text message body.</p>
@@ -1378,7 +1374,7 @@ auto-generated from a template view.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_msgTxt">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#673-688" title="Go to source code">msgTxt</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#675-690" title="Go to source code">msgTxt</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's plain-text message body.</p>
@@ -1417,7 +1413,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_stripHtml">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#690-727" title="Go to source code">stripHtml</a>( <span>string <var>$html</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#692-729" title="Go to source code">stripHtml</a>( <span>string <var>$html</var></span> )</code>
 
 		<div class="description short">
 			<p>Convert an HTML string to plain-text.</p>
@@ -1456,7 +1452,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAttachments">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#729-742" title="Go to source code">setAttachments</a>( <span>array <var>$attachments</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#731-744" title="Go to source code">setAttachments</a>( <span>array <var>$attachments</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the email's attachments.</p>
@@ -1497,7 +1493,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addAttachment">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#744-754" title="Go to source code">addAttachment</a>( <span>mixed <var>$attachment</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#746-756" title="Go to source code">addAttachment</a>( <span>mixed <var>$attachment</var></span> )</code>
 
 		<div class="description short">
 			<p>Add an attachment to the email.</p>
@@ -1538,7 +1534,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_attachments">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#756-764" title="Go to source code">attachments</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#758-766" title="Go to source code">attachments</a>( )</code>
 
 		<div class="description short">
 			<p>Get the email's attachments.</p>
@@ -1574,7 +1570,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setLog">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#766-776" title="Go to source code">setLog</a>( <span>boolean <var>$log</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#768-778" title="Go to source code">setLog</a>( <span>boolean <var>$log</var></span> )</code>
 
 		<div class="description short">
 			<p>Enable or disable logging for this particular email.</p>
@@ -1615,7 +1611,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_log">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#778-789" title="Go to source code">log</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#780-791" title="Go to source code">log</a>( )</code>
 
 		<div class="description short">
 			<p>Determine if logging is enabled for this particular email.</p>
@@ -1651,7 +1647,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTrack">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#791-801" title="Go to source code">setTrack</a>( <span>boolean <var>$track</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#793-803" title="Go to source code">setTrack</a>( <span>boolean <var>$track</var></span> )</code>
 
 		<div class="description short">
 			<p>Enable or disable tracking for this particular email.</p>
@@ -1692,7 +1688,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_track">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#803-814" title="Go to source code">track</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#805-816" title="Go to source code">track</a>( )</code>
 
 		<div class="description short">
 			<p>Determine if tracking is enabled for this particular email.</p>
@@ -1728,7 +1724,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#816-892" title="Go to source code">send</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#818-894" title="Go to source code">send</a>( )</code>
 
 		<div class="description short">
 			<p>Send the email to all recipients</p>
@@ -1764,7 +1760,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSmtpOptions">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#894-918" title="Go to source code">setSmtpOptions</a>( <span>PHPMailer\PHPMailer\PHPMailer\PHPMailer\PHPMailer <var>$mail</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#896-920" title="Go to source code">setSmtpOptions</a>( <span>PHPMailer\PHPMailer\PHPMailer\PHPMailer\PHPMailer <var>$mail</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the SMTP's options for PHPMailer.</p>
@@ -1799,7 +1795,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_queue">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#920-952" title="Go to source code">queue</a>( <span>mixed <var>$ts</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#922-954" title="Go to source code">queue</a>( <span>mixed <var>$ts</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Enqueue the email for each recipient.</p>
@@ -1840,7 +1836,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_logSend">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#954-1002" title="Go to source code">logSend</a>( <span>boolean <var>$result</var></span>, <span>mixed <var>$mailer</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#956-1004" title="Go to source code">logSend</a>( <span>boolean <var>$result</var></span>, <span>mixed <var>$mailer</var></span> )</code>
 
 		<div class="description short">
 			<p>Log the send event for each recipient.</p>
@@ -1877,7 +1873,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_logQueue">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1004-1013" title="Go to source code">logQueue</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1006-1015" title="Go to source code">logQueue</a>( )</code>
 
 		<div class="description short">
 			<p>Log the queue event.</p>
@@ -1907,7 +1903,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTemplateData">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1015-1025" title="Go to source code">setTemplateData</a>( <span>array <var>$data</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1017-1027" title="Go to source code">setTemplateData</a>( <span>array <var>$data</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the template data for the view.</p>
@@ -1946,7 +1942,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_templateData">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1027-1035" title="Go to source code">templateData</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1029-1037" title="Go to source code">templateData</a>( )</code>
 
 		<div class="description short">
 			<p>Get the template data for the view.</p>
@@ -1980,7 +1976,7 @@ it will be auto-generated from the HTML message.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_viewController">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1037-1062" title="Go to source code">viewController</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1039-1064" title="Go to source code">viewController</a>( )</code>
 
 		<div class="description short">
 			<p>Get the custom view controller for rendering
@@ -2023,7 +2019,7 @@ the email itself but an external "email" template.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getter">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1064-1074" title="Go to source code">getter</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1066-1076" title="Go to source code">getter</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			<p>Allow an object to define how the key getter are called.</p>
@@ -2062,7 +2058,7 @@ the email itself but an external "email" template.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setter">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1076-1087" title="Go to source code">setter</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1078-1089" title="Go to source code">setter</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			<p>Allow an object to define how the key setter are called.</p>
@@ -2101,7 +2097,7 @@ the email itself but an external "email" template.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createConfig">#</a>
-		<code><a href="source-class-Charcoal.Email.Email.html#1100-1110" title="Go to source code">createConfig</a>( )</code>
+		<code><a href="source-class-Charcoal.Email.Email.html#1102-1112" title="Go to source code">createConfig</a>( )</code>
 
 		<div class="description short">
 			<p>Temporary hack to fulfills the Configurable Interface.</p>
@@ -2125,25 +2121,7 @@ the email itself but an external "email" template.</p>
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Charcoal.Email.Queue.QueueableInterface.html#methods">Charcoal\Email\Queue\QueueableInterface</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Charcoal.Email.Queue.QueueableInterface.html#_queueId">queueId()</a>, 
-			<a href="class-Charcoal.Email.Queue.QueueableInterface.html#_setQueueId">setQueueId()</a>
-		</code></td>
-	</tr>
-	</table>
 
-	<table class="summary used">
-	<caption>Methods used from <a href="class-Charcoal.Email.Queue.QueueableTrait.html#methods">Charcoal\Email\Queue\QueueableTrait</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Charcoal.Email.Queue.QueueableTrait.html#_queueId">queueId()</a>, 
-			<a href="class-Charcoal.Email.Queue.QueueableTrait.html#_setQueueId">setQueueId()</a>
-		</code></td>
-	</tr>
-	</table>
 	<table class="summary used">
 	<caption>Methods used from <a href="class-Charcoal.Email.EmailAwareTrait.html#methods">Charcoal\Email\EmailAwareTrait</a></caption>
 	<tr>

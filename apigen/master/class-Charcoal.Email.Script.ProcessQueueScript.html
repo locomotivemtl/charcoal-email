@@ -30,11 +30,6 @@
 					</a>
 
 						<ul>
-				<li>
-					<a href="namespace-Charcoal.Email.Queue.html">
-						Queue					</a>
-
-						</li>
 				<li class="active">
 					<a href="namespace-Charcoal.Email.Script.html">
 						Script					</a>
@@ -97,6 +92,11 @@
 	<h1>Class ProcessQueueScript</h1>
 
 
+	<div class="description">
+	<p>Process Email Queue script.</p>
+
+<p>Can also be used as a cron script.</p>
+	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
@@ -130,7 +130,7 @@ Charcoal\App\Script\AbstractScript
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a>\<a href="namespace-Charcoal.Email.Script.html">Script</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#17-71" title="Go to source code">Charcoal/Email/Script/ProcessQueueScript.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#19-91" title="Go to source code">Charcoal/Email/Script/ProcessQueueScript.php</a>
 		<br>
 	</div>
 
@@ -138,6 +138,41 @@ Charcoal\App\Script\AbstractScript
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
+	<tr data-order="setDependencies" id="_setDependencies">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDependencies">#</a>
+		<code><a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#40-48" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd>Pimple DI container.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="run" id="_run">
 
 		<td class="attributes"><code>
@@ -150,7 +185,7 @@ Charcoal\App\Script\AbstractScript
 
 		<td class="name"><div>
 		<a class="anchor" href="#_run">#</a>
-		<code><a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#31-70" title="Go to source code">run</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>Psr\Http\Message\ResponseInterface <var>$response</var></span> )</code>
+		<code><a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#50-90" title="Go to source code">run</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>Psr\Http\Message\ResponseInterface <var>$response</var></span> )</code>
 
 		<div class="description short">
 			<p>Process all messages currently in queue.</p>
@@ -192,6 +227,34 @@ Charcoal\App\Script\AbstractScript
 
 
 
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="queueItemFactory" id="$queueItemFactory">
+		<td class="attributes"><code>
+			protected  
+			FactoryInterface
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#28-31" title="Go to source code"><var>$queueItemFactory</var></a>
+
+			<div class="description short">
+				<p>$queueItemFactory</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$queueItemFactory</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$queueItemFactory" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
