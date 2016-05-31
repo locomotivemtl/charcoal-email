@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\Email\Script\ProcessQueueScript</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.html">
+						Email<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Email.Script.html">
+						Script					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Charcoal.Email.ServiceProvider.html">
+						ServiceProvider					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Charcoal.Email.Script.ProcessQueueScript.html">ProcessQueueScript</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.Email.Script.html" title="Summary of Charcoal\Email\Script"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ProcessQueueScript</h1>
+
+
+	<div class="description">
+	<p>Process Email Queue script.</p>
+
+<p>Can also be used as a cron script.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Charcoal\App\Script\AbstractScript
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\Email\Script\ProcessQueueScript</span></b>			
+			 implements 
+<span>Charcoal\App\Script\CronScriptInterface</span>
+			
+			 uses 
+					Charcoal\App\Script\CronScriptTrait (not available)
+
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Email.html">Email</a>\<a href="namespace-Charcoal.Email.Script.html">Script</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#19-91" title="Go to source code">Charcoal/Email/Script/ProcessQueueScript.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setDependencies" id="_setDependencies">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDependencies">#</a>
+		<code><a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#40-48" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd>Pimple DI container.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="run" id="_run">
+
+		<td class="attributes"><code>
+			 public 
+
+			Psr\Http\Message\ResponseInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_run">#</a>
+		<code><a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#50-90" title="Go to source code">run</a>( <span>Psr\Http\Message\RequestInterface <var>$request</var></span>, <span>Psr\Http\Message\ResponseInterface <var>$response</var></span> )</code>
+
+		<div class="description short">
+			<p>Process all messages currently in queue.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Process all messages currently in queue.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$request</var></dt>
+					<dd>A PSR-7 compatible Request instance.</dd>
+					<dt><var>$response</var></dt>
+					<dd>A PSR-7 compatible Response instance.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					Psr\Http\Message\ResponseInterface
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="queueItemFactory" id="$queueItemFactory">
+		<td class="attributes"><code>
+			protected  
+			FactoryInterface
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Email.Script.ProcessQueueScript.html#28-31" title="Go to source code"><var>$queueItemFactory</var></a>
+
+			<div class="description short">
+				<p>$queueItemFactory</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>$queueItemFactory</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$queueItemFactory" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
