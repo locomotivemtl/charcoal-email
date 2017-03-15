@@ -1,0 +1,105 @@
+<?php
+
+namespace Charcoal\Email\Script;
+
+// From PSR-7
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
+// From Pimple
+use Pimple\Container;
+
+// From 'charcoal-app'
+use Charcoal\App\Script\AbstractScript;
+use Charcoal\App\Script\CronScriptInterface;
+use Charcoal\App\Script\CronScriptTrait;
+
+// From 'charcoal-factory'
+use Charcoal\Factory\FactoryInterface;
+
+// From 'charcoal-email'
+use Charcoal\Email\EmailQueueManager;
+
+/**
+ * Process Email Queue script.
+ *
+ * Can also be used as a cron script.
+ */
+class ProcessQueueScript extends AbstractScript implements CronScriptInterface
+{
+    use CronScriptTrait;
+
+    /**
+     * @var FactoryInterface $queueItemFactory
+     */
+    private $queueItemFactory;
+
+    /**
+     * A copy of all sent message.
+     *
+     * @var array $sent
+     */
+    private $sent;
+
+    /**
+     * @param Container $container Pimple DI container.
+     * @return void
+     */
+    public function setDependencies(Container $container)
+    {
+        parent::setDependencies($container);
+        $this->setQueueItemFactory($container['model/factory']);
+    }
+
+    /**
+     * @param FactoryInterface $factory The factory to create queue items.
+     * @return void
+     */
+    private function setQueueItemFactory(FactoryInterface $factory)
+    {
+        $this->queueItemFactory = $factory;
+    }
+
+    /**
+     * Process all messages currently in queue.
+     *
+     * @param  RequestInterface  $request  A PSR-7 compatible Request instance.
+     * @param  ResponseInterface $response A PSR-7 compatible Response instance.
+     * @return ResponseInterface
+     */
+    public function run(RequestInterface $request, ResponseInterface $response)
+    {
+        // Unused parameter
+        unset($request);
+
+        $this->startLock();
+
+        $climate = $this->climate();
+
+        $processedCallback = function($success, $failures, $skipped) use ($climate) {
+            if (!empty($success)) {
+                $climate->green()->out(sprintf('%s emails were successfully sent.', count($success)));
+            }
+
+            if (!empty($failures)) {
+                $climate->red()->out(sprintf('%s emails were not successfully sent', count($failures)));
+            }
+
+            if (!empty($skipped)) {
+                $climate->orange()->out(sprintf('%s emails were skipped.', count($skipped)));
+            }
+        };
+
+        $queueManager = new EmailQueueManager([
+            'logger' => $this->logger,
+            'queue_item_factory' => $this->queueItemFactory
+        ]);
+        $queueManager->setProcessedCallback($processedCallback);
+        $queueManager->processQueue();
+
+        $this->stopLock();
+
+        return $response;
+    }
+}
+

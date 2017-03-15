@@ -1,0 +1,14 @@
+<?php
+
+namespace Charcoal\Email;
+
+// From 'charcoal-app'
+use Charcoal\App\Template\AbstractTemplate;
+
+/**
+ * Default Email template controller, when none is provided.
+ */
+class GenericEmailTemplate extends AbstractTemplate
+{
+}
+

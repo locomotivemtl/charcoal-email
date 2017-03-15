@@ -1,0 +1,98 @@
+<?php
+
+namespace Charcoal\Email\ServiceProvider;
+
+// From Pimple
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
+
+// From PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+
+// From 'charcoal-factory'
+use Charcoal\Factory\GenericFactory as Factory;
+
+// From 'charcoal-email'
+use Charcoal\Email\Email;
+use Charcoal\Email\EmailInterface;
+use Charcoal\Email\EmailConfig;
+
+/**
+ * Email Service Provider
+ *
+ * Can provide the following services to a Pimple container:
+ *
+ * - `email/config`
+ * - `email/view`
+ * - `email/factory`
+ * - `email` (_factory_)
+ */
+class EmailServiceProvider implements ServiceProviderInterface
+{
+    /**
+     * @param  Container $container A pimple container instance.
+     * @return void
+     */
+    public function register(Container $container)
+    {
+        /**
+         * @param  Container $container Pimple DI container.
+         * @return \Charcoal\Email\EmailConfig
+         */
+        $container['email/config'] = function (Container $container) {
+            $appConfig = $container['config'];
+            $emailConfig = new EmailConfig($appConfig['email']);
+            return $emailConfig;
+        };
+
+        /**
+         * @param  Container $container Pimple DI container.
+         * @return \Charcoal\View\ViewInterface
+         */
+        $container['email/view'] = function (Container $container) {
+            return $container['view'];
+        };
+
+        // The email model dependencies might be already set from elsewhere; defines it if not.
+        if (!isset($container['email/dependencies'])) {
+            /**
+             * @param  Container $container A Pimple DI container instance.
+             * @return array The email dependencies array.
+             */
+            $container['email/dependencies'] = function (Container $container) {
+                return [
+                    'logger'             => $container['logger'],
+                    'config'             => $container['email/config'],
+                    'view'               => $container['email/view'],
+                    'template_factory'   => $container['template/factory'],
+                    'queue_item_factory' => $container['model/factory'],
+                    'log_factory'        => $container['model/factory']
+                ];
+            };
+        }
+
+        /**
+         * @param  Container $container Pimple DI container.
+         * @return \Charcoal\Factory\FactoryInterface
+         */
+        $container['email/factory'] = function(Container $container) {
+            return new Factory([
+                'map' => [
+                    'email' => Email::class
+                ],
+                'base_class'    => EmailInterface::class,
+                'default_class' => Email::class,
+                'arguments'     => [ $container['email/dependencies'] ]
+            ]);
+        };
+
+        /**
+         * @param  Container $container Pimple DI container.
+         * @return \Charcoal\Email\EmailInterface
+         */
+        $container['email'] = $container->factory(function (Container $container) {
+            return $container['email/factory']->create('email');
+        });
+    }
+}
+
