@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Email;
+namespace Charcoal\Email\Template;
 
 use Charcoal\App\Template\AbstractTemplate;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Charcoals\Tests\Email;
+namespace Charcoals\Tests\Email\Object;
 
 use PHPUnit_Framework_TestCase;
 
-use Charcoal\Email\EmailQueueItem;
+use Charcoal\Email\Object\EmailQueueItem;
 
 class EmailQueueItemTest extends PHPUnit_Framework_TestCase
 {

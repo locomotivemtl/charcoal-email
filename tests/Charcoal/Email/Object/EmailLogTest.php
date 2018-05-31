@@ -1,12 +1,12 @@
 <?php
 
-namespace Charcoals\Tests\Email;
+namespace Charcoals\Tests\Email\Object;
 
 use PHPUnit_Framework_TestCase;
 
 use DateTime;
 
-use Charcoal\Email\EmailLog;
+use Charcoal\Email\Object\EmailLog;
 
 class EmailLogTest extends PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,8 @@ class EmailLogTest extends PHPUnit_Framework_TestCase
     {
         $container = $GLOBALS['container'];
         $this->obj = new EmailLog([
-            'logger' => $container['logger']
+            'logger' => $container['logger'],
+            'container' => $container
         ]);
     }
 
@@ -28,15 +29,15 @@ class EmailLogTest extends PHPUnit_Framework_TestCase
         $ret = $this->obj->setData([
             'type' => 'email',
             'action' => 'foo',
-            'raw_response' => ['foo' => 'bar'],
-            'message_id' => 'foobar',
+            'rawResponse' => ['foo' => 'bar'],
+            'messageId' => 'foobar',
             'campaign' => 'phpunit',
             'to' => 'phpunit@example.com',
             'from' => 'charcoal@locomotive.ca',
             'subject' => 'Foo bar',
-            'send_date' => '2010-01-02 03:45:00',
+            'sendDate' => '2010-01-02 03:45:00',
             'ip' => '1.2.3.4',
-            'session_id' => 'foobar'
+            'sessionId' => 'foobar'
         ]);
         $this->assertSame($this->obj, $ret);
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Charcoal\Email;
+namespace Charcoal\Email\Service;
 
 // Dependencies from `charcoal-queue`
 use Charcoal\Queue\AbstractQueueManager;
 
 // Local namespace dependencies
-use Charcoal\Email\EmailQueueItem;
+use Charcoal\Email\Object\EmailQueueItem;
 
 /**
  * Queue manager for emails.

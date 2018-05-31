@@ -3,21 +3,21 @@
 namespace Charcoal\Email\Script;
 
 // PSR-7 (http messaging) dependencies
-use \Psr\Http\Message\RequestInterface;
-use \Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
-use \Pimple\Container;
+use Pimple\Container;
 
 // Module `charcoal-app` dependencies
-use \Charcoal\App\Script\AbstractScript;
-use \Charcoal\App\Script\CronScriptInterface;
-use \Charcoal\App\Script\CronScriptTrait;
+use Charcoal\App\Script\AbstractScript;
+use Charcoal\App\Script\CronScriptInterface;
+use Charcoal\App\Script\CronScriptTrait;
 
 // Module `charcoal-factory` dependencies
-use \Charcoal\Factory\FactoryInterface;
+use Charcoal\Factory\FactoryInterface;
 
 // Local dependencies
-use \Charcoal\Email\EmailQueueManager;
+use Charcoal\Email\Service\EmailQueueManager;
 
 /**
  * Process Email Queue script.

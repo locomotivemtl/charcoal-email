@@ -1,7 +1,7 @@
 Charcoal Email
 ==============
 
-Sending emails (with _PHPMailer_) and queue management.
+Sending emails (with _PHPMailer_) and logging and queue management.
 
 
 # How to install
@@ -14,9 +14,10 @@ The preferred (and only supported) way of installing _charcoal-email_ is with **
 
 ## Dependencies
 
--   [`PHP 5.5+`](http://php.net)
+-   [`PHP 5.6+`](http://php.net)
 -   [`phpmailer/phpmailer`](https://github.com/PHPMailer/PHPMailer)
 -   [`locomotivemtl/charcoal-config`](https://github.com/locomotivemtl/charcoal-config)
+-   [`locomotivemtl/charcoal-queue`](https://github.com/locomotivemtl/charcoal-queue)
 -   [`locomotivemtl/charcoal-app`](https://github.com/locomotivemtl/charcoal-app)
 
 ## Optional dependencies
@@ -28,11 +29,26 @@ The preferred (and only supported) way of installing _charcoal-email_ is with **
 
 # Usage
 
+A simple example:
+```php
+$email = $container['email'];
+$email->setTo('recipient@example.com');
+$email->setFrom('"Company inc." <company.inc@example.com>');
+$email->setSubject("Email subject");
+$email->setTemplateIdent('foo/email/simple-email');
+$email->setTemplateData([
+    'foo' => 'bar'
+]);
+$ret = $email->send();
+```
+
+Full example:
+
 ```php
 $email = $container['email'];
 $email->setData([
-    'campaign' => 'Campaign identifier'
-    'to' => [
+    'campaign'  => 'Campaign identifier'
+    'to'    => [
         'recipient@example.com',
         '"Some guy" <someguy@example.com>',
         [
@@ -40,22 +56,25 @@ $email->setData([
             'email' => 'otherguy@example.com'
         ]
     ],
-    'bcc' => 'shadow@example.com'
-    'from' => '"Company inc." <company.inc@example.com>',
-    'reply_to' => [
-        'name' => 'Jack CEO',
+    'bcc'   => 'shadow@example.com'
+    'from'  => '"Company inc." <company.inc@example.com>',
+    'replyTo' => [
+        'name'  => 'Jack CEO',
         'email' => 'jack@example.com'
     ],
-    'subject' => $this->translator->trans('Email subject'),
-    'template_ident' => 'foo/email/default-email'
-    'attachments' => [
+    'subject'       => $this->translator->trans('Email subject'),
+    'templateIdent' => 'foo/email/default-email',
+    'templateData'  => [
+        'foo'   => 'bar'
+    ],
+    'attachments'   => [
         'foo/bar.pdf',
         'foo/baz.pdf'
     ]
 ]);
 $email->send();
 
-// Alternately, to send at a later date / use the queue system:
+// Alternately, to send at a later date, use the queue system:
 $email->queue('in 5 minutes');
 ```
 
@@ -66,21 +85,26 @@ The entire email system can be configured from the main app config, in the `emai
 ```json
 {
     "email": {
-        "smtp": true,
-        "smtp_hostname": "smtp.example.com",
-        "smtp_port": 25,
-        "smtp_security": "tls",
-        "smtp_username": "user@example.com",
-        "smtp_password": "password",
-
-        "default_from": "webproject@example.com",
-        "default_reply_to": "webproject@example.com",
-        "default_track": false,
-        "default_log": true
+        "smtp": [
+            "hostname": "smtp.example.com",
+            "port": 25,
+            "security": "tls",
+            "username": "user@example.com",
+            "password": "password",
+        ],
+        
+        "defaultFrom": "webproject@example.com",
+        "defaultReplyTo": "webproject@example.com",
+        "defaultTrackEnabled": false,
+        "defaultLogEnabled": true
     }
 }
 
 ```
+
+* Note that the `smtp` section is optional. By default, SMTP is disabled (local sendmail is used).
+
+> It is recommended to use a single configuration file (ex: `config/email.json`) and include it in your main config.
 
 # Service Provider
 
@@ -90,22 +114,21 @@ All email services can be quickly register to a (`pimple`) container with `\Char
 
 | Service       | Type                | Description |
 | ------------- | ------------------- | ----------- |
-| **email**     | `Email`<sup>1</sup>        | An email object (factory). |
-| **email/factory** | `FactoryInterface`<sup>2</sup> | An email factory, to create email objects. |
-
-<sup>1</sup> `\Charcoal\Email\Email`.<br>
-<sup>2</sup> `Charcoal\Factory\FactoryInterface`.<br>
+| **email**     | `Charcoal\Email\Email`        | An email object (factory). |
+| **email/factory** | `Charcoal\Factory\FactoryInterface` | An email factory, to create email objects. |
 
 
 Also available are the following helpers:
 
 | Helper Service    | Type                | Description |
 | ----------------- | ------------------- | ----------- |
-| **email/config**  | `EmailConfig`<sup>3</sup> | Email configuration.
-| **email/view**    | `ViewInterface`<sup>4</sup>   | The view object to render email templates (`$container['view']`).
+| **email/config**  | `Charocoal\Email\Config\EmailConfig` | Email configuration.
+| **email/config/smtp** | `Charocoal\Email\Config\SmtpConfig` | SMTP configuration.
+| **email/view**    | `Charcoal\View\ViewInterface`   | The view object to render email templates (`$container['view']`).
+| **email/parser** | `Charcoal\Email\Service\EmailParser` | Helper to parse emails as RFC-822 strings or name/email array. |
+| **email/sender** | `Charcoal\Email\Service\EmailSender` | Service that queues or actually sends the email. |
+| **email/tracker** | `Charcoal\Email\Service\EmailTracker` | Service that logs and tracks sent emails. |
 
-<sup>3</sup> `\Charcoal\Email\EmailConfig`.<br>
-<sup>4</sup> `\Charcoal\View\ViewInterface`.<br>
 
 > 👉 For charcoal projects, simply add this provider to your config to enable:
 >
@@ -123,6 +146,17 @@ For the _email_ service provider to work properly, the following services are ex
 
 -   `config`
 -   `view`
+-   `model/factory`
+
+# Logging
+
+By default, all emails sent through the Charcoal Email system are logged in the database. This function is provided by `\Charcoal\Email\Service\EmailTracker` via the `\Charcoal\Email\Object\EmailLog` object.
+
+To disable logging for a specific email:
+
+```php
+$email->setLogEnabled(false);
+```
 
 # Development
 
@@ -170,18 +204,13 @@ The Charcoal-Email module follows the Charcoal coding-style:
 -   Mathieu Ducharme <mat@locomotive.ca>
 -   Chauncey McAskill <chauncey@locomotive.ca>
 -   Benjamin Roch <benjamin@locomotive.ca>
-
-## Changelog
-
-### 0.1
-
--Unreleased
+-   [Locomotive](https://locomotive.ca)
 
 # License
 
 **The MIT License (MIT)**
 
-_Copyright © 2016 Locomotive inc._
+_Copyright © 2018 Locomotive inc._
 > See [Authors](#authors).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

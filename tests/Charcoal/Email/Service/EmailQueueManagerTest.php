@@ -1,11 +1,11 @@
 <?php
 
-namespace Charcoals\Tests\Email;
+namespace Charcoals\Tests\Email\Service;
 
-use Charcoal\Email\EmailQueueItem;
 use PHPUnit_Framework_TestCase;
 
-use Charcoal\Email\EmailQueueManager;
+use Charcoal\Email\Object\EmailQueueItem;
+use Charcoal\Email\Service\EmailQueueManager;
 
 /**
  * Class EmailQueueManagerTest

@@ -3,25 +3,13 @@
 namespace Charcoal\Email;
 
 // Dependencies from `PHP`
-use Exception;
+
 use InvalidArgumentException;
-
-// PSR-3 (logger) dependencies
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
-
-// From `phpmailer/phpmailer`
-use PHPMailer\PHPMailer\PHPMailer;
-
-// Module `charcoal-config` dependencies
-use Charcoal\Config\ConfigurableInterface;
-use Charcoal\Config\ConfigurableTrait;
 
 // Module `charcoal-factory` dependencies
 use Charcoal\Factory\FactoryInterface;
 
 // Module `charcoal-view` dependencies
-use Charcoal\View\GenericView;
 use Charcoal\View\ViewableInterface;
 use Charcoal\View\ViewableTrait;
 
@@ -31,32 +19,28 @@ use Charcoal\Queue\QueueableTrait;
 
 // Intra module (`charcoal-email`) dependencies
 use Charcoal\Email\EmailInterface;
-use Charcoal\Email\EmailConfig;
-use Charcoal\Email\EmailLog;
-use Charcoal\Email\EmailQueueItem;
+use Charcoal\Email\Config\EmailConfig;
+use Charcoal\Email\Service\EmailParser;
+use Charcoal\Email\Service\EmailSender;
+use Charcoal\Email\Template\GenericEmailTemplate;
 
 /**
  * Default implementation of the `EmailInterface`.
  */
 class Email implements
-    ConfigurableInterface,
     EmailInterface,
-    LoggerAwareInterface,
     QueueableInterface,
     ViewableInterface
 {
-    use ConfigurableTrait;
-    use LoggerAwareTrait;
     use QueueableTrait;
     use ViewableTrait;
-    use EmailAwareTrait;
 
     /**
      * The campaign ID.
      *
      * @var string $campaign
      */
-    private $campaign;
+    private $campaign = '';
 
     /**
      * The recipient email address(es).
@@ -82,83 +66,78 @@ class Email implements
     /**
      * The sender's email address.
      *
-     * @var string $from
+     * @var string|null $from
      */
-    private $from;
+    private $from = '';
 
     /**
      * The email address to reply to the message.
      *
      * @var string $replyTo
      */
-    private $replyTo;
+    private $replyTo = '';
 
     /**
      * The email subject.
      *
-     * @var string $subject
+     * @var string
      */
-    private $subject;
+    private $subject = '';
 
     /**
      * The HTML message body.
      *
-     * @var string $msgHtml
+     * @var string
      */
-    private $msgHtml;
+    private $messageHtml = '';
 
     /**
      * The plain-text message body.
      *
-     * @var string $msgTxt
+     * @var string
      */
-    private $msgTxt;
+    private $messageTxt = '';
 
     /**
-     * @var array $attachments
+     * @var array
      */
     private $attachments = [];
+
+    /**
+     * The data to pass onto the view controller.
+     *
+     * @var array
+     */
+    private $templateData = [];
 
     /**
      * Whether the email should be logged.
      *
      * @var boolean $log
      */
-    private $log;
+    private $logEnabled = true;
 
     /**
      * Whether the email should be tracked.
      *
      * @var boolean $track
      */
-    private $track;
+    private $trackEnabled = false;
 
     /**
-     * The data to pass onto the view controller.
-     *
-     * @var array $templateData
-     */
-    private $templateData = [];
-
-    /**
-     * @var PHPMailer $phpMailer PHP Mailer instance.
-     */
-    private $phpMailer;
-
-    /**
-     * @var FactoryInterface $templateFactory
+     * @var FactoryInterface
      */
     private $templateFactory;
 
     /**
-     * @var FactoryInterface $queueItemFactory
+     * @var EmailParser
      */
-    private $queueItemFactory;
+    private $parser;
 
     /**
-     * @var FactoryInterface $logFactory
+     * @var EmailSender
      */
-    private $logFactory;
+    private $sender;
 
     /**
      * Construct a new Email object.
@@ -167,33 +146,12 @@ class Email implements
      */
     public function __construct(array $data)
     {
-        $this->phpMailer = new PHPMailer(true);
-        $this->setLogger($data['logger']);
+        // ViewableInterface dependencies
         $this->setView($data['view']);
-        $this->setConfig($data['config']);
-        $this->setTemplateFactory($data['template_factory']);
-        $this->setQueueItemFactory($data['queue_item_factory']);
-        $this->setLogFactory($data['log_factory']);
-    }
+        $this->setTemplateFactory($data['templateFactory']);
 
-    /**
-     * Set the email's data.
-     *
-     * @param array $data The data to set.
-     * @return Email Chainable
-     */
-    public function setData(array $data)
-    {
-        foreach ($data as $prop => $val) {
-            $func = [$this, $this->setter($prop)];
-            if (is_callable($func)) {
-                call_user_func($func, $val);
-            } else {
-                $this->{$prop} = $val;
-            }
-        }
-
-        return $this;
+        $this->setParser($data['parser']);
+        $this->setSender($data['sender']);
     }
 
     /**
@@ -225,8 +183,8 @@ class Email implements
      */
     public function campaign()
     {
-        if ($this->campaign === null) {
-            $this->campaign = $this->generateCampaign();
+        if ($this->campaign === '') {
+            $this->campaign = uniqid();
         }
 
         return $this->campaign;
@@ -275,7 +233,7 @@ class Email implements
      */
     public function addTo($email)
     {
-        $this->to[] = $this->parseEmail($email);
+        $this->to[] = $this->parser->parse($email);
         return $this;
     }
 
@@ -332,7 +290,7 @@ class Email implements
      */
     public function addCc($email)
     {
-        $this->cc[] = $this->parseEmail($email);
+        $this->cc[] = $this->parser->parse($email);
         return $this;
     }
 
@@ -390,7 +348,7 @@ class Email implements
      */
     public function addBcc($email)
     {
-        $this->bcc[] = $this->parseEmail($email);
+        $this->bcc[] = $this->parser->parse($email);
         return $this;
     }
 
@@ -410,25 +368,20 @@ class Email implements
      * @param  string|array $email An email address.
      * @throws InvalidArgumentException If the email is not a string or an array.
      * @return self
-     * @todo   Implement optional "Sender" field.
      */
     public function setFrom($email)
     {
-        $this->from = $this->parseEmail($email);
+        $this->from = $this->parser->parse($email);
         return $this;
     }
 
     /**
      * Get the sender's email address.
      *
-     * @return string
+     * @return string|null
      */
     public function from()
     {
-        if ($this->from === null) {
-            $this->setFrom($this->config()->defaultFrom());
-        }
-
         return $this->from;
     }
 
@@ -441,7 +394,7 @@ class Email implements
      */
     public function setReplyTo($email)
     {
-        $this->replyTo = $this->parseEmail($email);
+        $this->replyTo = $this->parser->parse($email);
         return $this;
     }
 
@@ -452,10 +405,6 @@ class Email implements
      */
     public function replyTo()
     {
-        if ($this->replyTo === null) {
-            $this->replyTo = $this->config()->defaultReplyTo();
-        }
-
         return $this->replyTo;
     }
 
@@ -496,7 +445,7 @@ class Email implements
      * @throws InvalidArgumentException If the message is not a string.
      * @return self
      */
-    public function setMsgHtml($body)
+    public function setMessageHtml($body)
     {
         if (!is_string($body)) {
             throw new InvalidArgumentException(
@@ -504,7 +453,7 @@ class Email implements
             );
         }
 
-        $this->msgHtml = $body;
+        $this->messageHtml = $body;
 
         return $this;
     }
@@ -517,12 +466,12 @@ class Email implements
      *
      * @return string
      */
-    public function msgHtml()
+    public function messageHtml()
     {
-        if ($this->msgHtml === null) {
-            $this->msgHtml = $this->generateMsgHtml();
+        if ($this->messageHtml === '') {
+            $this->messageHtml = $this->generateMessageHtml();
         }
-        return $this->msgHtml;
+        return $this->messageHtml;
     }
 
     /**
@@ -532,7 +481,7 @@ class Email implements
      * @throws InvalidArgumentException If the parameter is invalid.
      * @return self
      */
-    public function setMsgTxt($body)
+    public function setMessageTxt($body)
     {
         if (!is_string($body)) {
             throw new InvalidArgumentException(
@@ -540,7 +489,7 @@ class Email implements
             );
         }
 
-        $this->msgTxt = $body;
+        $this->messageTxt = $body;
 
         return $this;
     }
@@ -553,13 +502,13 @@ class Email implements
      *
      * @return string
      */
-    public function msgTxt()
+    public function messageTxt()
     {
-        if ($this->msgTxt === null) {
-            $this->msgTxt = $this->stripHtml($this->msgHtml());
+        if ($this->messageTxt === '') {
+            $this->messageTxt = $this->stripHtml($this->messageHtml());
         }
 
-        return $this->msgTxt;
+        return $this->messageTxt;
     }
 
     /**
@@ -600,204 +549,6 @@ class Email implements
     }
 
     /**
-     * Enable or disable logging for this particular email.
-     *
-     * @param  boolean $log The log flag.
-     * @return self
-     */
-    public function setLog($log)
-    {
-        $this->log = !!$log;
-        return $this;
-    }
-
-    /**
-     * Determine if logging is enabled for this particular email.
-     *
-     * @return boolean
-     */
-    public function log()
-    {
-        if ($this->log === null) {
-            $this->log = $this->config()->defaultLog();
-        }
-        return $this->log;
-    }
-
-    /**
-     * Enable or disable tracking for this particular email.
-     *
-     * @param boolean $track The track flag.
-     * @return self
-     */
-    public function setTrack($track)
-    {
-        $this->track = !!$track;
-        return $this;
-    }
-
-    /**
-     * Determine if tracking is enabled for this particular email.
-     *
-     * @return boolean
-     */
-    public function track()
-    {
-        if ($this->track === null) {
-            $this->track = $this->config()->defaultTrack();
-        }
-        return $this->track;
-    }
-
-    /**
-     * Send the email to all recipients
-     *
-     * @return boolean Success / Failure.
-     * @todo Implement methods and property for toggling rich-text vs. plain-text
-     *       emails (`$mail->isHTML(true)`).
-     */
-    public function send()
-    {
-        $this->logger->debug(
-            'Attempting to send an email',
-            $this->to()
-        );
-
-        $mail = $this->phpMailer;
-
-        try {
-            $this->setSmtpOptions($mail);
-
-            $mail->CharSet = 'UTF-8';
-
-            // Setting reply-to field, if required.
-            $replyTo = $this->replyTo();
-            if ($replyTo) {
-                $replyArr = $this->emailToArray($replyTo);
-                $mail->addReplyTo($replyArr['email'], $replyArr['name']);
-            }
-
-            // Setting from (sender) field.
-            $from = $this->from();
-            $fromArr = $this->emailToArray($from);
-            $mail->setFrom($fromArr['email'], $fromArr['name']);
-
-            // Setting to (recipients) field(s).
-            $to = $this->to();
-            foreach ($to as $recipient) {
-                $toArr = $this->emailToArray($recipient);
-                $mail->addAddress($toArr['email'], $toArr['name']);
-            }
-
-            // Setting cc (carbon-copy) field(s).
-            $cc = $this->cc();
-            foreach ($cc as $ccRecipient) {
-                $ccArr = $this->emailToArray($ccRecipient);
-                $mail->addCC($ccArr['email'], $ccArr['name']);
-            }
-
-            // Setting bcc (black-carbon-copy) field(s).
-            $bcc = $this->bcc();
-            foreach ($bcc as $bccRecipient) {
-                $bccArr = $this->emailToArray($bccRecipient);
-                $mail->addBCC($bccArr['email'], $bccArr['name']);
-            }
-
-            // Setting attachment(s), if required.
-            $attachments = $this->attachments();
-            foreach ($attachments as $att) {
-                $mail->addAttachment($att);
-            }
-
-            $mail->isHTML(true);
-
-            $mail->Subject = $this->subject();
-            $mail->Body    = $this->msgHtml();
-            $mail->AltBody = $this->msgTxt();
-
-            $ret = $mail->send();
-
-            $this->logSend($ret, $mail);
-
-            return $ret;
-        } catch (Exception $e) {
-            $this->logger->error(
-                sprintf('Error sending email: %s', $e->getMessage())
-            );
-        }
-    }
-
-    /**
-     * Set the SMTP's options for PHPMailer.
-     *
-     * @param PHPMailer $mail The PHPMailer to setup.
-     * @return void
-     */
-    protected function setSmtpOptions(PHPMailer $mail)
-    {
-        $config = $this->config();
-        if (!$config['smtp']) {
-            return;
-        }
-
-        $this->logger->debug(
-            sprintf('Using SMTP "%s" server to send email', $config['smtp_hostname'])
-        );
-
-        $mail->isSMTP();
-        $mail->Host       = $config['smtp_hostname'];
-        $mail->Port       = $config['smtp_port'];
-        $mail->SMTPAuth   = $config['smtp_auth'];
-        $mail->Username   = $config['smtp_username'];
-        $mail->Password   = $config['smtp_password'];
-        $mail->SMTPSecure = $config['smtp_security'];
-    }
-
-    /**
-     * Enqueue the email for each recipient.
-     *
-     * @param mixed $ts A date/time to initiate the queue processing.
-     * @return boolean Success / Failure.
-     */
-    public function queue($ts = null)
-    {
-        $recipients = $this->to();
-        $author     = $this->from();
-        $subject    = $this->subject();
-        $msgHtml    = $this->msgHtml();
-        $msgTxt     = $this->msgTxt();
-        $campaign   = $this->campaign();
-        $queueId    = $this->queueId();
-
-        foreach ($recipients as $to) {
-            $queueItem = $this->queueItemFactory()->create(EmailQueueItem::class);
-
-            $queueItem->setTo($to);
-            $queueItem->setFrom($author);
-            $queueItem->setSubject($subject);
-            $queueItem->setMsgHtml($msgHtml);
-            $queueItem->setMsgTxt($msgTxt);
-            $queueItem->setCampaign($campaign);
-            $queueItem->setProcessingDate($ts);
-            $queueItem->setQueueId($queueId);
-
-            $res = $queueItem->save();
-        }
-
-        return true;
-    }
-
-    /**
-     * Log the queue event.
-     *
-     * @return void
-     * @todo Implement log qeueing.
-     */
-    protected function logQueue()
-    {
-    }
-
-    /**
      * Set the template data for the view.
      *
      * @param array $data The template data.
@@ -820,6 +571,92 @@ class Email implements
     }
 
     /**
+     * Enable or disable logging for this particular email.
+     *
+     * @param  boolean $log The log flag.
+     * @return self
+     */
+    public function setLogEnabled($log)
+    {
+        $this->logEnabled = !!$log;
+        return $this;
+    }
+
+    /**
+     * Determine if logging is enabled for this particular email.
+     *
+     * @return boolean
+     */
+    public function logEnabled()
+    {
+        return $this->logEnabled;
+    }
+
+    /**
+     * Enable or disable tracking for this particular email.
+     *
+     * @param boolean $track The track flag.
+     * @return self
+     */
+    public function setTrackEnabled($track)
+    {
+        $this->trackEnabled = !!$track;
+        return $this;
+    }
+
+    /**
+     * Determine if tracking is enabled for this particular email.
+     *
+     * @return boolean
+     */
+    public function trackEnabled()
+    {
+        return $this->trackEnabled;
+    }
+
+
+    /**
+     * Set the email's data.
+     *
+     * @param array $data The data to set.
+     * @return Email Chainable
+     */
+    public function setData(array $data)
+    {
+        foreach ($data as $prop => $val) {
+            $func = [$this, 'set'.ucfirst($prop)];
+            if (is_callable($func)) {
+                call_user_func($func, $val);
+            } else {
+                $this->{$prop} = $val;
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Send the email to all recipients.
+     *
+     * @return boolean Success / Failure.
+     */
+    public function send()
+    {
+        return $this->sender->send($this);
+    }
+
+    /**
+     * Enqueue the email for each recipient.
+     *
+     * @param mixed $ts A date/time to initiate the queue processing.
+     * @return boolean Success / Failure.
+     */
+    public function queue($ts = null)
+    {
+        return$this->sender->queue($this, $ts);
+    }
+
+    /**
      * Get the custom view controller for rendering
      * the email's HTML message.
      *
@@ -837,67 +674,10 @@ class Email implements
             return [];
         }
 
-        $templateFactory = clone($this->templateFactory());
-        $templateFactory->setDefaultClass(GenericEmailTemplate::class);
-        $template = $templateFactory->create($templateIdent);
-
+        $template = $this->templateFactory->create($templateIdent);
         $template->setData($this->templateData());
 
         return $template;
-    }
-
-    /**
-     * @param FactoryInterface $factory The factory to use to create email template objects.
-     * @return Email Chainable
-     */
-    protected function setTemplateFactory(FactoryInterface $factory)
-    {
-        $this->templateFactory = $factory;
-        return $this;
-    }
-
-    /**
-     * @return FactoryInterface
-     */
-    protected function templateFactory()
-    {
-        return $this->templateFactory;
-    }
-
-    /**
-     * @param FactoryInterface $factory The factory to use to create email queue item objects.
-     * @return Email Chainable
-     */
-    protected function setQueueItemFactory(FactoryInterface $factory)
-    {
-        $this->queueItemFactory = $factory;
-        return $this;
-    }
-
-    /**
-     * @return FactoryInterface
-     */
-    protected function queueItemFactory()
-    {
-        return $this->queueItemFactory;
-    }
-
-    /**
-     * @param FactoryInterface $factory The factory to use to create log objects.
-     * @return Email Chainable
-     */
-    protected function setLogFactory(FactoryInterface $factory)
-    {
-        $this->logFactory = $factory;
-        return $this;
-    }
-
-    /**
-     * @return FactoryInterface
-     */
-    protected function logFactory()
-    {
-        return $this->logFactory;
     }
 
     /**
@@ -906,7 +686,7 @@ class Email implements
      * @see    ViewableInterface::renderTemplate()
      * @return string
      */
-    protected function generateMsgHtml()
+    protected function generateMessageHtml()
     {
         $templateIdent = $this->templateIdent();
 
@@ -917,40 +697,6 @@ class Email implements
         }
 
         return $message;
-    }
-
-    /**
-     * Generates a unique identifier ideal for a campaign ID.
-     *
-     * @return string
-     */
-    protected function generateCampaign()
-    {
-        return uniqid();
-    }
-
-    /**
-     * Allow an object to define how the key getter are called.
-     *
-     * @param string $key The key to get the getter from.
-     * @return string The getter method name, for a given key.
-     */
-    protected function getter($key)
-    {
-        $getter = $key;
-        return $this->camelize($getter);
-    }
-
-    /**
-     * Allow an object to define how the key setter are called.
-     *
-     * @param string $key The key to get the setter from.
-     * @return string The setter method name, for a given key.
-     */
-    protected function setter($key)
-    {
-        $setter = 'set_'.$key;
-        return $this->camelize($setter);
     }
 
     /**
@@ -986,81 +732,38 @@ class Email implements
         $str = str_replace("\t", '', $str);
         $str = preg_replace('#\n\r|\r\n#', "\n", $str);
         $str = preg_replace('#\n{3,}#', "\n\n", $str);
-        $str = preg_replace('/ {2,}/', ' ', $str);
+        $str = preg_replace('# {2,}#', ' ', $str);
         $str = implode("\n", array_map('trim', explode("\n", $str)));
         $str = trim($str)."\n";
         return $str;
     }
 
+
     /**
-     * Log the send event for each recipient.
-     *
-     * @param  boolean $result Success or failure.
-     * @param  mixed   $mailer The raw mailer.
+     * @param FactoryInterface $factory The factory to use to create email template objects.
+     * @return Email Chainable
+     */
+    private function setTemplateFactory(FactoryInterface $factory)
+    {
+        $this->templateFactory = $factory;
+        return $this;
+    }
+
+    /**
+     * @param EmailParser $parser The email parser service / helper.
      * @return void
      */
-    protected function logSend($result, $mailer)
+    private function setParser(EmailParser $parser)
     {
-        if ($this->log() === false) {
-            return;
-        }
-
-        if (!$result) {
-            $this->logger->error('Email could not be sent.');
-        } else {
-            $this->logger->debug(
-                sprintf('Email "%s" sent successfully.', $this->subject()),
-                $this->to()
-            );
-        }
-
-        $recipients = array_merge(
-            $this->to(),
-            $this->cc(),
-            $this->bcc()
-        );
-
-        foreach ($recipients as $to) {
-            $log = $this->logFactory()->create('charcoal/email/email-log');
-
-            $log->setType('email');
-            $log->setAction('send');
-
-            $log->setRawResponse($mailer);
-
-            $log->setMessageId($mailer->getLastMessageId());
-            $log->setCampaign($this->campaign());
-
-            $log->setSendDate('now');
-
-            $log->setFrom($mailer->From);
-            $log->setTo($to);
-            $log->setSubject($this->subject());
-
-            $log->save();
-        }
+        $this->parser = $parser;
     }
 
     /**
-     * Transform a snake_case string to camelCase.
-     *
-     * @param string $str The snake_case string to camelize.
-     * @return string The camelCase string.
+     * @param EmailSender $sender The email sender service / helper.
+     * @return void
      */
-    private function camelize($str)
+    private function setSender(EmailSender $sender)
     {
-        return lcfirst(implode('', array_map('ucfirst', explode('_', $str))));
-    }
-
-    /**
-     * Temporary hack to fulfills the Configurable Interface.
-     *
-     * @return EmailConfig
-     */
-    public function createConfig()
-    {
-        // This should really be avoided.
-        $this->logger->warning('AbstractEmail::createConfig() was called, but should not.');
-        return new \Charcoal\Email\EmailConfig();
+        $this->sender = $sender;
     }
 }

@@ -3,23 +3,15 @@
 namespace Charcoal\Email;
 
 /**
- *
+ * Email contract
  */
 interface EmailInterface
 {
     /**
-     * Set the email's data.
-     *
-     * @param array $data The data to set.
-     * @return Email Chainable
-     */
-    public function setData(array $data);
-
-    /**
      * Set the campaign ID.
      *
      * @param  string $campaign The campaign identifier.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setCampaign($campaign);
 
@@ -34,7 +26,7 @@ interface EmailInterface
      * Set the recipient email address(es).
      *
      * @param string|array $email The recipient email address(es).
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setTo($email);
 
@@ -42,7 +34,7 @@ interface EmailInterface
      * Add a recipient email address.
      *
      * @param  mixed $email The recipient email address to add.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function addTo($email);
 
@@ -57,7 +49,7 @@ interface EmailInterface
      * Set the carbon copy (CC) recipient email address(es).
      *
      * @param string|array $email The CC recipient email address(es).
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setCc($email);
 
@@ -65,7 +57,7 @@ interface EmailInterface
      * Add a CC recipient email address.
      *
      * @param mixed $email The CC recipient email address to add.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function addCc($email);
 
@@ -80,7 +72,7 @@ interface EmailInterface
      * Set the blind carbon copy (BCC) recipient email address(es).
      *
      * @param string|array $email The BCC recipient email address(es).
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setBcc($email);
 
@@ -88,7 +80,7 @@ interface EmailInterface
      * Add a BCC recipient email address.
      *
      * @param mixed $email The BCC recipient email address to add.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function addBcc($email);
 
@@ -103,7 +95,7 @@ interface EmailInterface
      * Set the sender's email address.
      *
      * @param  string|array $email An email address.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setFrom($email);
 
@@ -118,7 +110,7 @@ interface EmailInterface
      * Set email address to reply to the message.
      *
      * @param  mixed $email The sender's "Reply-To" email address.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setReplyTo($email);
 
@@ -133,7 +125,7 @@ interface EmailInterface
      * Set the email subject.
      *
      * @param  string $subject The email subject.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setSubject($subject);
 
@@ -148,37 +140,37 @@ interface EmailInterface
      * Set the email's HTML message body.
      *
      * @param  string $body The HTML message body.
-     * @return EmailInterface Chainable
+     * @return self
      */
-    public function setMsgHtml($body);
+    public function setMessageHtml($body);
 
     /**
      * Get the email's HTML message body.
      *
      * @return string
      */
-    public function msgHtml();
+    public function messageHtml();
 
     /**
      * Set the email's plain-text message body.
      *
      * @param string $body The message's text body.
-     * @return EmailInterface Chainable
+     * @return self
      */
-    public function setMsgTxt($body);
+    public function setMessageTxt($body);
 
     /**
      * Get the email's plain-text message body.
      *
      * @return string
      */
-    public function msgTxt();
+    public function messageTxt();
 
     /**
      * Set the email's attachments.
      *
      * @param  array $attachments The file attachments.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function setAttachments(array $attachments);
 
@@ -186,7 +178,7 @@ interface EmailInterface
      * Add an attachment to the email.
      *
      * @param  mixed $attachment A single file attachment.
-     * @return EmailInterface Chainable
+     * @return self
      */
     public function addAttachment($attachment);
 
@@ -198,34 +190,57 @@ interface EmailInterface
     public function attachments();
 
     /**
+     * Set the template data for the view.
+     *
+     * @param array $data The template data.
+     * @return Email Chainable
+     */
+    public function setTemplateData(array $data);
+
+    /**
+     * Get the template data for the view.
+     *
+     * @return array
+     */
+    public function templateData();
+
+    /**
      * Enable or disable logging for this particular email.
      *
      * @param  boolean $log The log flag.
-     * @return EmailInterface Chainable
+     * @return self
      */
-    public function setLog($log);
+    public function setLogEnabled($log);
 
     /**
      * Determine if logging is enabled for this particular email.
      *
      * @return boolean
      */
-    public function log();
+    public function logEnabled();
 
     /**
      * Enable or disable tracking for this particular email.
      *
      * @param boolean $track The track flag.
-     * @return EmailInterface Chainable
+     * @return self
      */
-    public function setTrack($track);
+    public function setTrackEnabled($track);
 
     /**
      * Determine if tracking is enabled for this particular email.
      *
      * @return boolean
      */
-    public function track();
+    public function trackEnabled();
+
+    /**
+     * Set the email's data.
+     *
+     * @param array $data The data to set.
+     * @return Email Chainable
+     */
+    public function setData(array $data);
 
     /**
      * Send the email to all recipients.

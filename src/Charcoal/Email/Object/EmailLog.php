@@ -1,22 +1,25 @@
 <?php
 
-namespace Charcoal\Email;
+namespace Charcoal\Email\Object;
 
-// Dependencies from `PHP`
+// Dependencies from PHP
 use DateTime;
 use DateTimeInterface;
 use Exception;
 use InvalidArgumentException;
 
-// From `charcoal-core`
+use Pimple\Container;
+
+// From charcoal-core
 use Charcoal\Model\AbstractModel;
+
+use Charcoal\Email\Service\EmailParser;
 
 /**
  * Email log
  */
 class EmailLog extends AbstractModel
 {
-    use EmailAwareTrait;
 
     /**
      * Type of log (e.g., "email").
@@ -110,6 +113,11 @@ class EmailLog extends AbstractModel
      * @var string $sessionId
      */
     private $sessionId;
+
+    /**
+     * @var EmailParser
+     */
+    private $parser;
 
     /**
      * Get the primary key that uniquely identifies each queue item.
@@ -273,7 +281,7 @@ class EmailLog extends AbstractModel
      */
     public function setFrom($email)
     {
-        $this->from = $this->parseEmail($email);
+        $this->from = $this->parser->parse($email);
         return $this;
     }
 
@@ -295,7 +303,7 @@ class EmailLog extends AbstractModel
      */
     public function setTo($email)
     {
-        $this->to = $this->parseEmail($email);
+        $this->to = $this->parser->parse($email);
         return $this;
     }
 
@@ -414,6 +422,17 @@ class EmailLog extends AbstractModel
     }
 
     /**
+     * @param Container $container Pimple DI Container.
+     * @return void
+     */
+    protected function setDependencies(Container $container)
+    {
+        parent::setDependencies($container);
+
+        $this->setParser($container['email/parser']);
+    }
+
+    /**
      * @see    StorableTrait::preSave()
      * @return boolean
      */
@@ -427,5 +446,14 @@ class EmailLog extends AbstractModel
         $this->setSessionId($sessionId);
 
         return true;
+    }
+
+    /**
+     * @param EmailParser $parser Email parser service / helper.
+     * @return void
+     */
+    private function setParser(EmailParser $parser)
+    {
+        $this->parser = $parser;
     }
 }

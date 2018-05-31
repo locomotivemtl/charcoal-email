@@ -26,9 +26,10 @@ class EmailTest extends PHPUnit_Framework_TestCase
             'logger'    => $container['logger'],
             'config'    => $container['email/config'],
             'view'      => $container['email/view'],
-            'template_factory' => $container['template/factory'],
-            'queue_item_factory' => $container['model/factory'],
-            'log_factory' => $container['model/factory']
+            'templateFactory' => $container['template/factory'],
+            'parser'    => $container['email/parser'],
+            'sender'    => $container['email/sender'],
+            'tracker'   => $container['email/tracker']
         ]);
     }
 
@@ -36,20 +37,24 @@ class EmailTest extends PHPUnit_Framework_TestCase
     {
         $obj = $this->obj;
         $ret = $obj->setData([
-            'campaign'    => 'foo',
-            'to'          => 'test@example.com',
-            'cc'          => 'cc@example.com',
-            'bcc'         => 'bcc@example.com',
-            'from'        => 'from@example.com',
-            'reply_to'    => 'reply@example.com',
-            'subject'     => 'bar',
-            'msg_html'    => 'foo',
-            'msg_txt'     => 'baz',
-            'attachments' => [
+            'campaign'      => 'foo',
+            'to'            => 'test@example.com',
+            'cc'            => 'cc@example.com',
+            'bcc'           => 'bcc@example.com',
+            'from'          => 'from@example.com',
+            'replyTo'       => 'reply@example.com',
+            'subject'       => 'bar',
+            'messageHtml'       => 'foo',
+            'messageTxt'        => 'baz',
+            'attachments'   => [
                 'foo'
             ],
-            'log'   => true,
-            'track' => true
+            'templateIdent' => 'foobar',
+            'templateData'  => [
+                'foo' => 'bar'
+            ],
+            'logEnabled'   => true,
+            'trackEnabled' => true
         ]);
         $this->assertSame($ret, $obj);
 
@@ -60,11 +65,13 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('from@example.com', $obj->from());
         $this->assertEquals('reply@example.com', $obj->replyTo());
         $this->assertEquals('bar', $obj->subject());
-        $this->assertEquals('foo', $obj->msgHtml());
-        $this->assertEquals('baz', $obj->msgTxt());
+        $this->assertEquals('foo', $obj->messageHtml());
+        $this->assertEquals('baz', $obj->messageTxt());
         $this->assertEquals(['foo'], $obj->attachments());
-        $this->assertEquals(true, $obj->log());
-        $this->assertEquals(true, $obj->track());
+        $this->assertEquals('foobar', $obj->templateIdent());
+        $this->assertEquals(['foo'=>'bar'], $obj->templateData());
+        $this->assertEquals(true, $obj->logEnabled());
+        $this->assertEquals(true, $obj->trackEnabled());
     }
 
     public function testSetCampaign()
@@ -117,10 +124,10 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->setTo('test@example.com');
         $this->assertEquals(['test@example.com'], $obj->to());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setTo(false);
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setTo(false);
     }
 
@@ -134,7 +141,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->addTo(['name'=>'Test','email'=>'test@example.com']);
         $this->assertEquals(['test@example.com', '"Test" <test@example.com>'], $obj->to());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->addTo(false);
     }
 
@@ -157,7 +164,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->setCc('test@example.com');
         $this->assertEquals(['test@example.com'], $obj->cc());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->SetCc(false);
     }
 
@@ -171,7 +178,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->addCc(['name'=>'Test','email'=>'test@example.com']);
         $this->assertEquals(['test@example.com', '"Test" <test@example.com>'], $obj->cc());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->addCc(false);
     }
 
@@ -194,7 +201,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->setBcc('test@example.com');
         $this->assertEquals(['test@example.com'], $obj->bcc());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setBcc(false);
     }
 
@@ -208,7 +215,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $obj->addBcc(['name'=>'Test','email'=>'test@example.com']);
         $this->assertEquals(['test@example.com', '"Test" <test@example.com>'], $obj->bcc());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->addBcc(false);
     }
 
@@ -228,7 +235,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         ]);
         $this->assertEquals('"Test" <test@example.com>', $obj->from());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setFrom(false);
     }
 
@@ -248,7 +255,7 @@ class EmailTest extends PHPUnit_Framework_TestCase
         ]);
         $this->assertEquals('"Test" <test@example.com>', $obj->replyTo());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setReplyTo(false);
     }
 
@@ -259,30 +266,30 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $this->assertSame($ret, $obj);
         $this->assertEquals('foo', $obj->subject());
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $obj->setSubject(null);
     }
 
-    public function testSetMsgHtml()
+    public function testSetMessageHtml()
     {
         $obj = $this->obj;
-        $ret = $obj->setMsgHtml('foo');
+        $ret = $obj->setMessageHtml('foo');
         $this->assertSame($ret, $obj);
-        $this->assertEquals('foo', $obj->msgHtml());
+        $this->assertEquals('foo', $obj->messageHtml());
 
-        $this->setExpectedException('\InvalidArgumentException');
-        $obj->setMsgHtml(null);
+        $this->expectException(InvalidArgumentException::class);
+        $obj->setMessageHtml(null);
     }
 
-    public function testSetMsgTxt()
+    public function testSetMessageTxt()
     {
         $obj = $this->obj;
-        $ret = $obj->setMsgTxt('foo');
+        $ret = $obj->setMessageTxt('foo');
         $this->assertSame($ret, $obj);
-        $this->assertEquals('foo', $obj->msgTxt());
+        $this->assertEquals('foo', $obj->messageTxt());
 
-        $this->setExpectedException('\InvalidArgumentException');
-        $obj->setMsgTxt(null);
+        $this->expectException(InvalidArgumentException::class);
+        $obj->setMessageTxt(null);
     }
 
     public function testConvertHtml()
@@ -291,10 +298,10 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $html = file_get_contents(__DIR__.'/../../data/example.html');
         $txt = file_get_contents(__DIR__.'/../../data/example.txt');
 
-        $obj->setMsgHtml($html);
+        $obj->setMessageHtml($html);
 
         // Next assert add a "\n" because the txt file ends with a newline,
-        $this->assertEquals($txt, $obj->msgTxt());
+        $this->assertEquals($txt, $obj->messageTxt());
     }
 
     public function testSetAttachments()
@@ -305,31 +312,31 @@ class EmailTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['foo'], $obj->attachments());
     }
 
-    public function testSetLog()
+    public function testSetLogEnabled()
     {
         $obj = $this->obj;
         // $this->config()->setDefaultLog(false);
         // $this->assertNotTrue($obj->log());
 
-        $ret = $obj->setLog(true);
-        $this->assertSame($ret, $obj);
-        $this->assertTrue($obj->log());
+        $ret = $this->obj->setLogEnabled(true);
+        $this->assertSame($ret, $this->obj);
+        $this->assertTrue($this->obj->logEnabled());
 
-        $obj->setLog(false);
-        $this->assertNotTrue($obj->log());
+        $obj->setLogEnabled(false);
+        $this->assertFalse($this->obj->logEnabled());
     }
 
-    public function testSetTrack()
+    public function testSetTrackEnabled()
     {
         $obj = $this->obj;
-        // $this->config()->setDefaultTrack(false);
-        // $this->assertNotTrue($obj->track());
+        // $this->config()->setDefaultTrackEnabled(false);
+        // $this->assertNotTrue($obj->trackEnabled());
 
-        $ret = $obj->setTrack(true);
+        $ret = $obj->setTrackEnabled(true);
         $this->assertSame($ret, $obj);
-        $this->assertTrue($obj->track());
+        $this->assertTrue($obj->trackEnabled());
 
-        $obj->setTrack(false);
-        $this->assertNotTrue($obj->track());
+        $obj->setTrackEnabled(false);
+        $this->assertNotTrue($obj->trackEnabled());
     }
 }

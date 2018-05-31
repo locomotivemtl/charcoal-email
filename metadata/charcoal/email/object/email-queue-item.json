@@ -27,10 +27,10 @@
         "subject": {
             "type": "string"
         },
-        "msg_html": {
+        "message_html": {
             "type": "html"
         },
-        "msg_txt": {
+        "message_txt": {
             "type": "text"
         }
     },

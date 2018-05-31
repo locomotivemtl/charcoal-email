@@ -30,6 +30,9 @@ $config = new AppConfig([
     'service_providers' => [
         'charcoal/email/service-provider/email' => [],
         'charcoal/model/service-provider/model' => []
+    ],
+    'email' => [
+        'defaultFrom' => 'charcoal@example.com'
     ]
 ]);
 
