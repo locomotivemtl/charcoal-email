@@ -3,7 +3,7 @@
         "id": {
             "type": "id"
         },
-        "queue_id": {
+        "queueId": {
             "type": "string",
             "label": {
                 "en": "Queue ID",
@@ -21,21 +21,21 @@
                 "fr": "Si cette propriété est vraie, ce <i>queue-item</i> a été traité et le courriel a été envoyé."
             }
         },
-        "queued_date": {
+        "queuedDate": {
             "type": "date-time",
             "label": {
                 "en": "Queued date",
                 "fr": "Date de queue"
             }
         },
-        "processed_date": {
+        "processedDate": {
             "type": "date-time",
             "label": {
                 "en": "Processed date",
                 "fr": "Date envoyé"
             }
         },
-        "processing_date": {
+        "processingDate": {
             "type": "date-time",
             "label": {
                 "en": "Processing date",
@@ -48,7 +48,7 @@
         },
         "to": {
             "type": "string",
-            "allow_html": true,
+            "allowHtml": true,
             "label": {
                 "en": "To",
                 "fr": "À:"
@@ -56,7 +56,7 @@
         },
         "from": {
             "type": "string",
-            "allow_html": true,
+            "allowHtml": true,
             "label": {
                 "en": "From",
                 "fr": "De:"
@@ -69,7 +69,7 @@
                 "fr": "Sujet"
             }
         },
-        "msg_html": {
+        "msgHtml": {
             "type": "html",
             "label": {
                 "en": "HTML Message",
@@ -80,7 +80,7 @@
                 "fr": "Le message HTML à envoyer dans le courriel. Peut être vidé (sécuritairement) par des scripts de nettoyage après que cet élément (courriel) ait été envoyé."
             }
         },
-        "msg_txt": {
+        "msgTxt": {
             "type": "text",
             "label": {
                 "en": "Text Message",
@@ -99,5 +99,6 @@
             "table": "charcoal_email_queue"
         }
     },
-    "default_source": "default"
+
+    "defaultSource": "default"
 }

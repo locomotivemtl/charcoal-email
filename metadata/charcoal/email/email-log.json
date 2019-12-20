@@ -9,9 +9,9 @@
         "action": {
             "type": "string"
         },
-        "message_id": {
+        "messageId": {
             "type": "string",
-            "allow_html": true,
+            "allowHtml": true,
             "label": {
                 "en": "Message Identifier",
                 "fr": "Identifiant courriel"
@@ -19,7 +19,7 @@
         },
         "from": {
             "type": "string",
-            "allow_html": true,
+            "allowHtml": true,
             "description": {
                 "en": "Sender's (from) email",
                 "fr": "Courriel d'envoi"
@@ -31,7 +31,7 @@
         },
         "to": {
             "type": "string",
-            "allow_html": true,
+            "allowHtml": true,
             "description": {
                 "en": "Recipient's (to) email",
                 "fr": "Courriel de réception"
@@ -48,21 +48,21 @@
                 "fr": "Sujet"
             }
         },
-        "send_ts": {
+        "sendTs": {
             "type": "date-time",
             "label": {
                 "en": "Date",
                 "fr": "Date"
             }
         },
-        "send_status": {
+        "sendStatus": {
             "type": "string",
             "label": {
                 "en": "Send Status",
                 "fr": "Status d'envoi"
             }
         },
-        "send_error": {
+        "sendError": {
             "type": "string",
             "label": {
                 "en": "Send Error",
@@ -83,7 +83,7 @@
                 "fr": "Adresse IP"
             }
         },
-        "session_id": {
+        "sessionId": {
             "type": "string",
             "label": {
                 "en": "Session Identifier",
@@ -98,5 +98,6 @@
             "table": "charcoal_email_logs"
         }
     },
-    "default_source": "default"
+
+    "defaultSource": "default"
 }

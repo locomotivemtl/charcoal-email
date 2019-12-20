@@ -22,49 +22,49 @@ class EmailLog extends AbstractModel
      *
      * @var string $type
      */
-    private $type;
+    protected $type;
 
     /**
      * The action logged (e.g., "send").
      *
      * @var string $action
      */
-    private $action;
+    protected $action;
 
     /**
      * The Message-ID (Unique message identifier)
      *
      * @var string $messageId
      */
-    private $messageId;
+    protected $messageId;
 
     /**
      * The campaign ID.
      *
      * @var string $campaign
      */
-    private $campaign;
+    protected $campaign;
 
     /**
      * The sender's email address.
      *
      * @var string $from
      */
-    private $from;
+    protected $from;
 
     /**
      * The recipient's email address.
      *
      * @var string $to
      */
-    private $to;
+    protected $to;
 
     /**
      * The email subject.
      *
      * @var string $subject
      */
-    private $subject;
+    protected $subject;
 
     /**
      * Whether the email has been semt.
@@ -73,35 +73,35 @@ class EmailLog extends AbstractModel
      *
      * @var integer $sendStatus
      */
-    private $sendStatus;
+    protected $sendStatus;
 
     /**
      * The error message from a failed send.
      *
      * @var string $sendError
      */
-    private $sendError;
+    protected $sendError;
 
     /**
      * When the email should be sent.
      *
      * @var DateTimeInterface|null $sendTs
      */
-    private $sendTs;
+    protected $sendTs;
 
     /**
      * The current IP address at the time of the log.
      *
      * @var string $ip
      */
-    private $ip;
+    protected $ip;
 
     /**
      * The current session ID at the time of the log.
      *
      * @var string $sessionId
      */
-    private $sessionId;
+    protected $sessionId;
 
     /**
      * Get the primary key that uniquely identifies each queue item.
@@ -134,16 +134,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * Get the log type.
-     *
-     * @return string
-     */
-    public function type()
-    {
-        return $this->type;
-    }
-
-    /**
      * Set the logged action.
      *
      * @param  string $action The log action (e.g., "send").
@@ -161,16 +151,6 @@ class EmailLog extends AbstractModel
         $this->action = $action;
 
         return $this;
-    }
-
-    /**
-     * Get the logged action.
-     *
-     * @return string
-     */
-    public function action()
-    {
-        return $this->action;
     }
 
     /**
@@ -194,17 +174,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * Get the Message-ID.
-     *
-     * @return string
-     */
-    public function messageId()
-    {
-        return $this->messageId;
-    }
-
-
-    /**
      * Set the campaign ID.
      *
      * @param  string $campaign The campaign identifier.
@@ -225,16 +194,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * Get the campaign identifier.
-     *
-     * @return string
-     */
-    public function campaign()
-    {
-        return $this->campaign;
-    }
-
-    /**
      * Set the sender's email address.
      *
      * @param  string|array $email An email address.
@@ -248,16 +207,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * Get the sender's email address.
-     *
-     * @return string
-     */
-    public function from()
-    {
-        return $this->from;
-    }
-
-    /**
      * Set the recipient's email address.
      *
      * @param  string|array $email An email address.
@@ -267,16 +216,6 @@ class EmailLog extends AbstractModel
     {
         $this->to = $this->parseEmail($email);
         return $this;
-    }
-
-    /**
-     * Get the recipient's email address.
-     *
-     * @return string
-     */
-    public function to()
-    {
-        return $this->to;
     }
 
     /**
@@ -300,16 +239,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * Get the email subject.
-     *
-     * @return string
-     */
-    public function subject()
-    {
-        return $this->subject;
-    }
-
-    /**
      * @param  string $status The mailer's status code or description.
      * @return self
      */
@@ -320,14 +249,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * @return string|null
-     */
-    public function sendStatus()
-    {
-        return $this->sendStatus;
-    }
-
-    /**
      * @param  string $errorMessage The mailer's error code or description.
      * @return self
      */
@@ -335,14 +256,6 @@ class EmailLog extends AbstractModel
     {
         $this->sendError = $errorMessage;
         return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function sendError()
-    {
-        return $this->sendError;
     }
 
     /**
@@ -376,14 +289,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * @return null|DateTimeInterface
-     */
-    public function sendTs()
-    {
-        return $this->sendTs;
-    }
-
-    /**
      * @param mixed $ip The IP adress.
      * @return self
      */
@@ -394,14 +299,6 @@ class EmailLog extends AbstractModel
     }
 
     /**
-     * @return mixed
-     */
-    public function ip()
-    {
-        return $this->ip;
-    }
-
-    /**
      * @param string $sessionId The session identifier.
      * @return self
      */
@@ -409,14 +306,6 @@ class EmailLog extends AbstractModel
     {
         $this->sessionId = $sessionId;
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function sessionId()
-    {
-        return $this->sessionId;
     }
 
     /**
@@ -433,7 +322,7 @@ class EmailLog extends AbstractModel
         $this->setIp($ip);
         $this->setSessionId($sessionId);
 
-        if ($this->sendTs() === null) {
+        if ($this['sendTs'] === null) {
             $this->setSendTs('now');
         }
 

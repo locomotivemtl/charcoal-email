@@ -55,109 +55,109 @@ class Email implements
      *
      * @var string $campaign
      */
-    private $campaign;
+    protected $campaign;
 
     /**
      * The recipient email address(es).
      *
      * @var array $to
      */
-    private $to = [];
+    protected $to = [];
 
     /**
      * The CC recipient email address(es).
      *
      * @var array $cc
      */
-    private $cc = [];
+    protected $cc = [];
 
     /**
      * The BCC recipient email address(es).
      *
      * @var array $bcc
      */
-    private $bcc = [];
+    protected $bcc = [];
 
     /**
      * The sender's email address.
      *
      * @var string $from
      */
-    private $from;
+    protected $from;
 
     /**
      * The email address to reply to the message.
      *
      * @var string $replyTo
      */
-    private $replyTo;
+    protected $replyTo;
 
     /**
      * The email subject.
      *
      * @var string $subject
      */
-    private $subject;
+    protected $subject;
 
     /**
      * The HTML message body.
      *
      * @var string $msgHtml
      */
-    private $msgHtml;
+    protected $msgHtml;
 
     /**
      * The plain-text message body.
      *
      * @var string $msgTxt
      */
-    private $msgTxt;
+    protected $msgTxt;
 
     /**
      * @var array $attachments
      */
-    private $attachments = [];
+    protected $attachments = [];
 
     /**
      * Whether the email should be logged.
      *
      * @var boolean $log
      */
-    private $log;
+    protected $log;
 
     /**
      * Whether the email should be tracked.
      *
      * @var boolean $track
      */
-    private $track;
+    protected $track;
 
     /**
      * The data to pass onto the view controller.
      *
      * @var array $templateData
      */
-    private $templateData = [];
+    protected $templateData = [];
 
     /**
      * @var PHPMailer $phpMailer PHP Mailer instance.
      */
-    private $phpMailer;
+    protected $phpMailer;
 
     /**
      * @var FactoryInterface $templateFactory
      */
-    private $templateFactory;
+    protected $templateFactory;
 
     /**
      * @var FactoryInterface $queueItemFactory
      */
-    private $queueItemFactory;
+    protected $queueItemFactory;
 
     /**
      * @var FactoryInterface $logFactory
      */
-    private $logFactory;
+    protected $logFactory;
 
     /**
      * Construct a new Email object.

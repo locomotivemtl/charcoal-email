@@ -1,14 +1,14 @@
 {
-    "labels": {
-        "name": "Email Log",
-        "singular_name": "Email Log",
-        "edit_item": "Edit Email Log",
-        "create_item": "Create Email Log",
-        "new_item": "New Email Log",
-        "all_items": "All Email Logs",
-        "menu_items": "Email Logs"
-    },
     "admin": {
+        "labels": {
+            "name": "Email Log",
+            "singularName": "Email Log",
+            "editItem": "Edit Email Log",
+            "createItem": "Create Email Log",
+            "newItem": "New Email Log",
+            "allItems": "All Email Logs",
+            "menuItems": "Email Logs"
+        },
         "export": {
             "default": {
                 "properties": [
@@ -23,18 +23,19 @@
                 ],
                 "orders": [
                     {
-                        "property": "send_ts",
+                        "property": "sendTs",
                         "mode": "desc"
                     }
                 ],
-                "exporter_options": {
-                    "convert_br_to_newlines": true,
-                    "strip_tags": true,
+                "exporterOptions": {
+                    "convertBrToNewlines": true,
+                    "stripTags": true,
                     "filename": "email-logs.csv"
                 }
             }
         },
-        "default_export": "default",
+
+        "defaultExport": "default",
 
         "lists": {
             "default": {
@@ -43,21 +44,21 @@
                     "en": "Sent Email Logs"
                 },
                 "properties": [
-                    "send_ts",
+                    "sendTs",
                     "from",
                     "to",
                     "subject"
                 ],
                 "orders": [
                     {
-                        "property": "send_ts",
+                        "property": "sendTs",
                         "mode": "desc"
                     }
                 ],
                 "pagination": {
-                    "num_per_page": 100
+                    "numPerPage": 100
                 },
-                "list_actions": {
+                "listActions": {
                     "export": {
                         "url": "object/export?obj_type={{obj_type}}",
                         "label": {
@@ -68,7 +69,8 @@
                 }
             }
         },
-        "default_list": "default",
+
+        "defaultList": "default",
 
         "forms": {
             "default": {
@@ -79,13 +81,13 @@
                             "en": "Sent Email Log"
                         },
                         "properties": [
-                            "send_ts",
+                            "sendTs",
                             "campaign",
                             "from",
                             "to",
                             "subject",
                             "ip",
-                            "session_id"
+                            "sessionId"
                         ],
                         "layout": {
                             "structure": [
@@ -99,23 +101,24 @@
                     "status": {
                         "title": "Status",
                         "properties": [
-                            "message_id",
-                            "send_status",
-                            "send_error"
+                            "messageId",
+                            "sendStatus",
+                            "sendError"
                         ]
                     }
                 }
             }
         },
-        "default_form": "default",
+
+        "defaultForm": "default",
 
         "dashboards": {
             "admin.edit": {
                 "widgets": {
                     "form": {
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default",
-                        "obj_type": "charcoal/email/email-log"
+                        "formIdent": "default",
+                        "objType": "charcoal/email/email-log"
                     }
                 },
                 "layout": {
@@ -128,8 +131,8 @@
                 "widgets": {
                     "form": {
                         "type": "charcoal/admin/widget/table",
-                        "collection_ident": "default",
-                        "obj_type": "charcoal/email/email-log"
+                        "collectionIdent": "default",
+                        "objType": "charcoal/email/email-log"
                     }
                 },
                 "layout": {
@@ -139,8 +142,9 @@
                 }
             }
         },
-        "default_create_dashboard": "admin.edit",
-        "default_edit_dashboard": "admin.edit",
-        "default_collection_dashboard": "admin.table"
+
+        "defaultCreateDashboard": "admin.edit",
+        "defaultEditDashboard": "admin.edit",
+        "defaultCollectionDashboard": "admin.table"
     }
 }

@@ -3,26 +3,27 @@
         "export": {
             "default": {
                 "properties": [
-                    "queue_id",
-                    "queued_date",
+                    "queueId",
+                    "queuedDate",
                     "processed",
-                    "processed_date",
+                    "processedDate",
                     "from",
                     "to",
                     "subject"
                 ],
                 "orders": [{
-                    "property": "queued_date",
+                    "property": "queuedDate",
                     "mode": "desc"
                 }],
-                "exporter_options": {
-                    "convert_br_to_newlines": true,
-                    "strip_tags": true,
+                "exporterOptions": {
+                    "convertBrToNewlines": true,
+                    "stripTags": true,
                     "filename": "email-queue-items.csv"
                 }
             }
         },
-        "default_export": "default",
+
+        "defaultExport": "default",
 
         "lists": {
             "default": {
@@ -31,7 +32,7 @@
                     "en": "Email queue items"
                 },
                 "properties": [
-                    "queue_id",
+                    "queueId",
                     "processed",
                     "from",
                     "to"
@@ -42,7 +43,8 @@
                 }]
             }
         },
-        "default_list": "default",
+
+        "defaultList": "default",
 
         "forms": {
             "default": {
@@ -59,9 +61,10 @@
                 }
             }
         },
-        "default_form": "default",
 
-        "form_groups": {
+        "defaultForm": "default",
+
+        "formGroups": {
             "charcoal/email/email-queue-item/queue": {
                 "title": {
                     "fr": "Queue de courriel",
@@ -73,8 +76,8 @@
                     }]
                 },
                 "properties": [
-                    "queue_id",
-                    "queued_date"
+                    "queueId",
+                    "queuedDate"
                 ]
             },
             "charcoal/email/email-queue-item/send": {
@@ -83,9 +86,10 @@
                     "en": "Sent status"
                 },
                 "layout": {
-                    "structure": [{
-                        "columns": [1, 2]
-                    },
+                    "structure": [
+                        {
+                            "columns": [1, 2]
+                        },
                         {
                             "columns": [1]
                         },
@@ -99,8 +103,8 @@
                 },
                 "properties": [
                     "processed",
-                    "processed_date",
-                    "processing_date"
+                    "processedDate",
+                    "processingDate"
                 ]
             },
             "charcoal/email/email-queue-item/message": {
@@ -109,9 +113,10 @@
                     "fr": "Message"
                 },
                 "layout": {
-                    "structure": [{
-                        "columns": [1, 1]
-                    },
+                    "structure": [
+                        {
+                            "columns": [1, 1]
+                        },
                         {
                             "columns": [1]
                         },
@@ -127,8 +132,8 @@
                     "from",
                     "to",
                     "subject",
-                    "msg_html",
-                    "msg_txt"
+                    "msgHtml",
+                    "msgTxt"
                 ]
             }
         },
@@ -143,8 +148,8 @@
                 "widgets": {
                     "form": {
                         "type": "charcoal/admin/widget/object-form",
-                        "form_ident": "default",
-                        "obj_type": "charcoal/email/email-queue-item"
+                        "formIdent": "default",
+                        "objType": "charcoal/email/email-queue-item"
                     }
                 }
             },
@@ -157,14 +162,14 @@
                 "widgets": {
                     "form": {
                         "type": "charcoal/admin/widget/table",
-                        "collection_ident": "default",
-                        "obj_type": "charcoal/email/email-queue-item"
+                        "collectionIdent": "default",
+                        "objType": "charcoal/email/email-queue-item"
                     }
                 }
             }
         },
-        "default_create_dashboard": "admin.edit",
-        "default_edit_dashboard": "admin.edit",
-        "default_collection_dashboard": "admin.table"
+        "defaultCreateDashboard": "admin.edit",
+        "defaultEditDashboard": "admin.edit",
+        "defaultCollectionDashboard": "admin.table"
     }
 }

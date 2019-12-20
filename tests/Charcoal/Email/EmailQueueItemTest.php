@@ -28,6 +28,6 @@ class EmailQueueItemTest extends PHPUnit_Framework_TestCase
         ]);
         $this->assertSame($this->obj, $ret);
 
-        $this->assertEquals('phpunit', $this->obj->ident());
+        $this->assertEquals('phpunit', $this->obj['ident']);
     }
 }
