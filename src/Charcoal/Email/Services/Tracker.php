@@ -52,10 +52,11 @@ class Tracker
     public function addOpenTrackingImage(Email &$email, string $emailLogId): void
     {
         $html = $email->msgHtml();
-        $regexp = '/(<body(.*)>)/i';
+        $regexp = '/(<body.*?>)/i';
         $pixel = sprintf('<img src="%s" alt="" />', $this->baseUrl.'email/v1/open/'.$emailLogId.'.png');
-        if (preg_match($regexp, $html) === true) {
-            preg_replace($regexp, '${0}'.$pixel, $html);
+        if (preg_match($regexp, $html) != false) {
+            $parts = preg_split($regexp, $html, -1, (PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE));
+            $html = $parts[0].$parts[1].$pixel.$parts[2];
         } else {
             $html .= $pixel;
         }
