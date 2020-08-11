@@ -73,8 +73,9 @@ class Tracker
         $html = $email->msgHtml();
 
         $callback = function(array $matches) use ($emailLogId): string {
-            $linkId = $this->createLink($emailLogId, $matches[1]);
-            return $this->baseUrl.'email/v1/link/'.$linkId;
+            $linkId  = $this->createLink($emailLogId, $matches[1]);
+            $linkUrl = $this->baseUrl.'email/v1/link/'.$linkId;
+            return str_replace($matches[1], $linkUrl, $matches[0]);
         };
         $regexp = '/<a\s+(?:[^>]*?\s+)?href="([^"]*)"/';
         $html = preg_replace_callback($regexp, $callback, $html);
